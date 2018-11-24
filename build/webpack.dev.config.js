@@ -1,5 +1,6 @@
 const merge = require('webpack-merge')
 const path = require('path')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const baseConfig = require("./webpack.base.config")
 
 module.exports = merge(baseConfig, {
@@ -17,5 +18,12 @@ module.exports = merge(baseConfig, {
         open: true,
         hot: true,
         port: '9820'
-    }
+    },
+    plugins: [
+        new CopyWebpackPlugin([{
+            from: path.resolve(__dirname, '../public/static'),
+            to: 'static',
+            ignore: ['.*']
+        }])
+    ]
 })

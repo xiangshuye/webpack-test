@@ -4,7 +4,6 @@ const baseConfig = require('./webpack.base.config')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-const CommonsPkg = require('./bundle-conf.json')
 
 module.exports = merge(baseConfig, {
     mode: 'production',
@@ -20,12 +19,8 @@ module.exports = merge(baseConfig, {
             verbose: true,
             dry: false
         }),
-        new webpack.DllReferencePlugin({
-            context: __dirname, // 与DllPlugin中的那个context保持一致
-            manifest: require('./vendor-manifest.json') // 下面这个地址对应webpack.dll.config.js中生成的那个json文件的路径
-        }),
         new CopyWebpackPlugin([{
-            from: path.resolve(__dirname, '../static'),
+            from: path.resolve(__dirname, '../public/static'),
             to: 'static',
             ignore: ['.*']
         }])

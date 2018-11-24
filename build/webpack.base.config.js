@@ -7,7 +7,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 module.exports = {
     entry:{
-        app: path.resolve(__dirname, "../src/index.js"),
+        app: path.resolve(__dirname, "../src/index.js")
     },
     module:{
         rules: [
@@ -37,11 +37,11 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ['css-loader', 'vue-style-loader', 'postcss-loader']
+                use: [MiniCssExtractPlugin.loader,'css-loader', 'postcss-loader']
             },
             {
                 test: /.less$/,
-                use: ['vue-style-loader', 'css-loader', 'less-loader', 'postcss-loader']
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader', 'postcss-loader']
             }
         ]
     },
@@ -64,7 +64,7 @@ module.exports = {
         // }),
         new webpack.optimize.SplitChunksPlugin(),
         new MiniCssExtractPlugin({
-            filename: '[name].[hash].css',
+            filename: 'css/[name].[hash].css',
             chunkFilename: '[id].[hash].css'
         }),
     ],

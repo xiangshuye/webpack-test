@@ -26,7 +26,7 @@ module.exports = {
     //   filename: 'bundle-conf.json',
     //   path: __dirname
     // }),
-    new webpack.optimize.UglifyJsPlugin({
+    new config.optimization.minimize ({
       output: {
         comments: false
       },
