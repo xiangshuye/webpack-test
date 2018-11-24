@@ -10,7 +10,7 @@ module.exports = merge(baseConfig, {
     devtool: 'source-map',
     output: {
         path: path.resolve(__dirname, '../dist'),
-        filename: '[name].[hash].js',
+        filename: 'js/[name].[hash].js',
         publicPath: './'
     },
     plugins: [
