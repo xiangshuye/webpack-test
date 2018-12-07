@@ -12,8 +12,10 @@
   "author": "xueliang",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "echarts": "^4.2.0-rc.2",
-    "vue": "^2.5.17"
+    "vue": "^2.5.17",
+    "vue-router": "^3.0.2"
   },
   "devDependencies": {
     "autodll-webpack-plugin": "^0.4.2",
