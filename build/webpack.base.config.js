@@ -47,8 +47,9 @@ module.exports = {
     },
     plugins:[
         new HtmlWebpackPlugin({
-            // filename: path.resolve(__dirname, '../index.html'),
-            template: path.resolve(__dirname, '../public/index.html')
+            filename: path.resolve(__dirname, '../dist/index.html'),
+            template: path.resolve(__dirname, '../public/index.html'),
+            inject: true 
         }),
         new VueLoaderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
