@@ -14,8 +14,7 @@ module.exports = merge(baseConfig, {
         publicPath: './'
     },
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.css$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
             },
