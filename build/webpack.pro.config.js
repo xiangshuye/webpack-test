@@ -13,6 +13,18 @@ module.exports = merge(baseConfig, {
         filename: 'js/[name].[hash].js',
         publicPath: './'
     },
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
+            },
+            {
+                test: /.less$/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader', 'postcss-loader']
+            }
+        ]
+    },
     plugins: [
         new CleanWebpackPlugin(['dist/'], {
             root: path.resolve(__dirname, '../'),

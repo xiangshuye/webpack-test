@@ -6,12 +6,12 @@ const AutoDllPlugin = require("autodll-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 module.exports = {
-    entry:{
+    entry: {
+        vendor: ['vue', 'vue-router', 'echarts'],
         app: path.resolve(__dirname, "../src/index.js")
     },
-    module:{
-        rules: [
-            {
+    module: {
+        rules: [{
                 test: /\.js$/,
                 use: 'babel-loader',
                 exclude: /node_modules/
@@ -34,22 +34,14 @@ module.exports = {
             {
                 test: /\.vue$/,
                 use: 'vue-loader'
-            },
-            {
-                test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader,'css-loader', 'postcss-loader']
-            },
-            {
-                test: /.less$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader', 'postcss-loader']
             }
         ]
     },
-    plugins:[
+    plugins: [
         new HtmlWebpackPlugin({
             filename: path.resolve(__dirname, '../dist/index.html'),
             template: path.resolve(__dirname, '../public/index.html'),
-            inject: true 
+            inject: true
         }),
         new VueLoaderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
@@ -70,7 +62,7 @@ module.exports = {
         }),
     ],
     resolve: {
-        alias:{
+        alias: {
             "vue$": "vue/dist/vue.esm.js",
             "@": path.resolve(__dirname, '../src'),
         },

@@ -19,6 +19,18 @@ module.exports = merge(baseConfig, {
         hot: true,
         port: '9820'
     },
+    module:{
+        rules:[
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader', 'postcss-loader']
+            },
+            {
+                test: /.less$/,
+                use: ['style-loader', 'css-loader', 'less-loader', 'postcss-loader']
+            }
+        ]
+    },
     plugins: [
         new CopyWebpackPlugin([{
             from: path.resolve(__dirname, '../public/static'),

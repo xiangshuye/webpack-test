@@ -1,9 +1,8 @@
 <template>
     <div id="app">
-        haah
         <span>123</span>
         <img src="static/image/163-1.png" alt="ai" width="100">
-        <ChartVue :width='600' :height='400'></ChartVue>    
+        <!-- <ChartVue :width='600' :height='400'></ChartVue>     -->
     </div>
 </template>
 
