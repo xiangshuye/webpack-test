@@ -1,39 +1,28 @@
-'use strict'
- 
-const path = require('path')
-const webpack = require('webpack')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
-// const AssetsPlugin = require('assets-webpack-plugin')
- 
+const path = require('path');
+const webpack = require('webpack');
+
 module.exports = {
-  entry: 'vue',
+  entry: {
+    vendor: [
+    'vue/dist/vue.esm.js',
+    'vue-router',
+    'axios',
+    'echarts'
+    ]
+  },
   output: {
-    path: path.resolve(__dirname, '../public/static/js/'), // 生成的文件存放路径
-    filename: 'dll.[name].[chunkhash].js', // 生成的文件名字(默认为dll.vendor.[hash].js)
-    library: '[name]_[chunkhash]' // 生成文件的映射关系，与下面DllPlugin中配置对应
+    path: path.join(__dirname, '../public/js'), //放在项目的static/js目录下面
+    filename: '[name].dll.js', //打包文件的名字
+    library: '[name]_library' //可选 暴露出的全局变量名
+    // vendor.dll.js中暴露出的全局变量名。
+    // 主要是给DllPlugin中的name使用，
+    // 故这里需要和webpack.DllPlugin中的`name: '[name]_library',`保持一致。
   },
   plugins: [
     new webpack.DllPlugin({
-    // 会生成一个json文件，里面是关于dll.js的一些配置信息
-      path: path.resolve(__dirname, '[name]-manifest.json'),
-      name: '[name]_[chunkhash]', // 与上面output中配置对应
-      context: __dirname // 上下文环境路径（必填，为了与DllReferencePlugin存在与同一上下文中）
-    }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    }),
-    // new AssetsPlugin({  //
-    //   filename: 'bundle-conf.json',
-    //   path: __dirname
-    // }),
-    new config.optimization.minimize ({
-      output: {
-        comments: false
-      },
-      compressor: {
-        warnings: false
-      }
-    }),
-    new CleanWebpackPlugin(['dll'])
+      path: path.join(__dirname, '.', '[name]-manifest.json'), //生成上文说到清单文件，放在当前build文件下面，这个看你自己想放哪里了。
+      name: '[name]_library'
+    })
   ]
-}
+};
+
