@@ -1,7 +1,7 @@
 {
   "name": "webpack-test",
   "version": "1.0.0",
-  "description": "",
+  "description": "学习webpack，手动搭建vue项目",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.config.js",
@@ -11,6 +11,10 @@
   },
   "author": "xueliang",
   "license": "ISC",
+  "repository": {
+    "type": "Git",
+    "url": "git@github.com:xl07097/webpack-test.git"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "echarts": "^4.2.0-rc.2",
