@@ -2,7 +2,6 @@ const path = require('path')
 const webpack = require("webpack")
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const AutoDllPlugin = require("autodll-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 module.exports = {
@@ -45,16 +44,6 @@ module.exports = {
         }),
         new VueLoaderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        // new AutoDllPlugin({
-        //     cache: true,
-        //     inject: true,
-        //     debug: true,
-        //     filename: '[name].js',
-        //     path: './dll',
-        //     entry: {
-        //         vendor: ['vue']
-        //     }
-        // }),
         new webpack.optimize.SplitChunksPlugin(),
         new MiniCssExtractPlugin({
             filename: 'css/[name].[hash].css',

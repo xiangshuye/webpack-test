@@ -7,7 +7,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = merge(baseConfig, {
     mode: 'production',
-    devtool: 'source-map',
+    devtool: 'cheap-module-source-map',
     output: {
         path: path.resolve(__dirname, '../dist'),
         filename: 'js/[name].[hash].js',

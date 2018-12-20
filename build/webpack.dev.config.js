@@ -5,10 +5,10 @@ const baseConfig = require("./webpack.base.config")
 
 module.exports = merge(baseConfig, {
     mode: 'development',
-    devtool: 'source-map',
+    devtool: 'cheap-module-eval-source-map',
     output:{
         path: path.resolve(__dirname, '../dist'),
-        filename: '[name].[hash].js',
+        filename: '[name].js',
         publicPath:'/'
         // assetsSubDirectory: 'static',
         // assetsPublicPath: '/',
