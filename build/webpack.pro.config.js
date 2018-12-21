@@ -9,7 +9,7 @@ const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 
 module.exports = merge(baseConfig, {
     mode: 'production',
-    devtool: 'cheap-module-source-map',
+    devtool: "cheap-module-source-map",
     output: {
         path: path.resolve(__dirname, '../dist'),
         filename: 'js/[name].[hash].js',
@@ -37,14 +37,11 @@ module.exports = merge(baseConfig, {
             chunkFilename: '[id].[hash].css'
         }),
         new CopyWebpackPlugin([{
-            from: path.resolve(__dirname, '../public/static'),
-            to: 'static',
-            ignore: ['.*']
-        }, {
-            from: path.resolve(__dirname, '../public/js'),
-            to: 'js',
-            ignore: ['.*']
-        }]),
+                from: path.resolve(__dirname, '../public/static'),
+                to: 'static',
+                ignore: ['.*']
+            }
+        ]),
         new webpack.DllReferencePlugin({
             context: path.resolve(__dirname, '..'),
             manifest: require('./vendor-manifest.json')
@@ -52,7 +49,7 @@ module.exports = merge(baseConfig, {
         // //这个主要是将生成的vendor.dll.js文件加上hash值插入到页面中。
         new AddAssetHtmlPlugin([{
             filepath: path.resolve(__dirname, '../public/js/vendor.dll.js'),
-            outputPath: '../dist/js',  // 【坑：不要用path.resolve，否则打包进程结束不了】
+            outputPath: '../dist/js', // 【坑：不要用path.resolve，否则打包进程结束不了】
             publicPath: './js',
             includeSourcemap: false,
             // hash: true,
