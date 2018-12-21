@@ -15,6 +15,7 @@ module.exports = merge(baseConfig, {
     },
     devServer: {
         contentBase: '../dist',
+        historyApiFallback: true,
         open: true,
         hot: true,
         port: '9820'
