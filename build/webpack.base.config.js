@@ -42,8 +42,7 @@ module.exports = {
             inject: true
         }),
         new VueLoaderPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.optimize.SplitChunksPlugin()
+        new webpack.HotModuleReplacementPlugin()
     ],
     resolve: {
         alias: {

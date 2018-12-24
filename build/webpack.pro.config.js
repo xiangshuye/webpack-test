@@ -34,7 +34,7 @@ module.exports = merge(baseConfig, {
         }),
         new MiniCssExtractPlugin({
             filename: 'css/[name].[hash].css',
-            chunkFilename: '[id].[hash].css'
+            chunkFilename: 'css/[id].[hash].css'
         }),
         new CopyWebpackPlugin([{
                 from: path.resolve(__dirname, '../public/static'),

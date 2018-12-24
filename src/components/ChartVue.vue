@@ -3,7 +3,6 @@
 </template>
 <script>
 import * as echarts from "echarts";
-import func from "./vue-temp/vue-editor-bridge";
 export default {
   name: "ChartVue",
   props: {
