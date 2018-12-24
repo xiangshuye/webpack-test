@@ -16,17 +16,17 @@ module.exports = {
             },
             {
                 test: /\.(png|svg|jpe?g|gif)$/,
-                loader: 'file-loader',
+                loader: 'url-loader',
                 options: {
-                    limit: 10000,
+                    limit: 102400,
                     name: path.posix.join('static', 'img/[name].[hash:7].[ext]')
                 }
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
-                loader: 'file-loader',
+                loader: 'url-loader',
                 options: {
-                    limit: 90000,
+                    limit: 51200,
                 }
             },
             {
