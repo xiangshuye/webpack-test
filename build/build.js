@@ -8,12 +8,12 @@ rm(path.join(path.resolve(__dirname, '../dist'), 'static'), err => {
         throw new Error(err)
     }
     webpack(config, (err, stats) => {
-        if (err || stats.hasErrors()) {
-            return;
-        }
-        console.log(stats.toString({
+        process.stdout.write(stats.toString({
+            colors: true,
+            modules: false,
+            children: false,
             chunks: false,
-            colors: true
-        }));
+            chunkModules: false
+        }))
     })
 })
