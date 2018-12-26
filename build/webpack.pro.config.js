@@ -37,11 +37,10 @@ module.exports = merge(baseConfig, {
             chunkFilename: 'css/[id].[hash].css'
         }),
         new CopyWebpackPlugin([{
-                from: path.resolve(__dirname, '../public/static'),
-                to: 'static',
-                ignore: ['.*']
-            }
-        ]),
+            from: path.resolve(__dirname, '../public/static'),
+            to: 'static',
+            ignore: ['.*']
+        }]),
         new webpack.DllReferencePlugin({
             context: path.resolve(__dirname, '..'),
             manifest: require('./vendor-manifest.json')

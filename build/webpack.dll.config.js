@@ -11,7 +11,7 @@ module.exports = {
     ]
   },
   output: {
-    path: path.join(__dirname, '../public/js'), //放在项目的static/js目录下面
+    path: path.join(__dirname, '../public/js'), //放在项目的js目录下面
     filename: '[name].dll.js', //打包文件的名字
     library: '[name]_library' //可选 暴露出的全局变量名
     // vendor.dll.js中暴露出的全局变量名。
