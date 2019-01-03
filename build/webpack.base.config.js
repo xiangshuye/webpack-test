@@ -18,7 +18,7 @@ module.exports = {
                 test: /\.(png|svg|jpe?g|gif)$/,
                 loader: 'url-loader',
                 options: {
-                    limit: 102400,
+                    limit: 10240,
                     name: path.posix.join('static', 'img/[name].[hash:7].[ext]')
                 }
             },
@@ -27,6 +27,7 @@ module.exports = {
                 loader: 'url-loader',
                 options: {
                     limit: 51200,
+                    name: path.posix.join('fonts', '[name].[hash:7].[ext]')
                 }
             },
             {
@@ -43,6 +44,7 @@ module.exports = {
         }),
         new VueLoaderPlugin(),
         new webpack.HotModuleReplacementPlugin()
+        // new webpack.optimize.SplitChunksPlugin()
     ],
     resolve: {
         alias: {
