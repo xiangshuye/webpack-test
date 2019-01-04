@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "学习webpack，手动搭建vue项目",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.config.js",
     "start": "npm run dev",
