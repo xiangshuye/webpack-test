@@ -51,6 +51,6 @@ module.exports = {
             "vue$": "vue/dist/vue.esm.js",
             "@": path.resolve(__dirname, '../src'),
         },
-        extensions: [".js", ".json", ".vue"]
+        extensions: [".js", ".json", ".vue"] // 列表过长，会影响查找速度  import导入时，一些文件建议添加 后缀名 此时要添加 “*”
     }
 }
