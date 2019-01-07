@@ -23,15 +23,16 @@ module.exports = {
                         name: path.posix.join('static', 'img/[name].[hash:7].[ext]')
                     }
                 }]
-
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
-                loader: 'url-loader',
-                options: {
-                    limit: 51200,
-                    name: path.posix.join('fonts', '[name].[hash:7].[ext]')
-                }
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        limit: 51200,
+                        name: path.posix.join('fonts', '[name].[hash:7].[ext]')
+                    }
+                }]
             },
             {
                 test: /\.vue$/,
