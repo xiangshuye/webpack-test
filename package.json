@@ -11,7 +11,7 @@
     "build": "node build/build.js"
   },
   "author": "xueliang",
-  "license": "ISC",
+  "license": "MIT",
   "repository": {
     "type": "Git",
     "url": "git@github.com:xl07097/webpack-test.git"
