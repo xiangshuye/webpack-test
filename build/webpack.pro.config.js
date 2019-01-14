@@ -3,7 +3,6 @@ const webpack = require("webpack")
 const merge = require('webpack-merge')
 const baseConfig = require('./webpack.base.config')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 
