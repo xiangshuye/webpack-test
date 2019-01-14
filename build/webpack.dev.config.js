@@ -31,12 +31,5 @@ module.exports = merge(baseConfig, {
                 use: ['style-loader', 'vue-style-loader','css-loader', 'less-loader', 'postcss-loader']
             }
         ]
-    },
-    plugins: [
-        new CopyWebpackPlugin([{
-            from: path.resolve(__dirname, '../public/static'),
-            to: 'static',
-            ignore: ['.*']
-        }])
-    ]
+    }
 })

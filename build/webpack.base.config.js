@@ -46,6 +46,11 @@ module.exports = {
             template: path.resolve(__dirname, '../public/index.html'),
             inject: true
         }),
+        new CopyWebpackPlugin([{
+            from: path.resolve(__dirname, '../public/static'),
+            to: 'static',
+            ignore: ['.*']
+        }]),
         new VueLoaderPlugin(),
         new webpack.HotModuleReplacementPlugin()
         // new webpack.optimize.SplitChunksPlugin()
