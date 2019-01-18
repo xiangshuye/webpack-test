@@ -1,2 +1,2 @@
-POST http://192.1.6.230:8080/EduManagement/Area/GetAreadatalist HTTP/1.1
-content-type: application/json
+GET http://services.odata.org/V4/TripPinServiceRW/People HTTP/1.1
+Accept: application/json
