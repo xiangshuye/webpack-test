@@ -39,7 +39,7 @@ module.exports = merge(baseConfig, {
             context: path.resolve(__dirname, '..'),
             manifest: require('./vendor-manifest.json')
         }),
-        // //这个主要是将生成的vendor.dll.js文件加上hash值插入到页面中。
+        //这个主要是将生成的vendor.dll.js文件加上hash值插入到页面中。
         new AddAssetHtmlPlugin([{
             filepath: path.resolve(__dirname, '../public/js/vendor.dll.js'),
             outputPath: '../dist/js', // 【坑：不要用path.resolve，否则打包进程结束不了】
