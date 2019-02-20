@@ -26,7 +26,7 @@ module.exports = merge(baseConfig, {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(['dist/'], {
+        new CleanWebpackPlugin(['dist/'], { // 编译前删除出口文件夹，防止文件体积过大
             root: path.resolve(__dirname, '../'),
             verbose: true,
             dry: false
@@ -40,7 +40,7 @@ module.exports = merge(baseConfig, {
             manifest: require('./vendor-manifest.json')
         }),
         //这个主要是将生成的vendor.dll.js文件加上hash值插入到页面中。
-        new AddAssetHtmlPlugin([{
+        new AddAssetHtmlPlugin([{ // 把生成的 dll.js 写入到 index.html 文件中
             filepath: path.resolve(__dirname, '../public/js/vendor.dll.js'),
             outputPath: '../dist/js', // 【坑：不要用path.resolve，否则打包进程结束不了】
             publicPath: './js',

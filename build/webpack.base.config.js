@@ -5,17 +5,17 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
-    entry: {
+    entry: { // 入口文件
         app: path.resolve(__dirname, "../src/index.js")
     },
-    module: {
+    module: { // 模块选项
         rules: [{
-                test: /\.js$/,
+                test: /\.js$/, // 对 js 文件进行处理
                 use: 'babel-loader',
                 exclude: /node_modules/
             },
             {
-                test: /\.(png|svg|jpe?g|gif)$/,
+                test: /\.(png|svg|jpe?g|gif)$/, // 处理图片
                 use: [{
                     loader: 'url-loader',
                     options: {
@@ -25,7 +25,7 @@ module.exports = {
                 }]
             },
             {
-                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                test: /\.(woff|woff2|eot|ttf|otf)$/, // 处理字体文件
                 use: [{
                     loader: 'url-loader',
                     options: {
@@ -35,28 +35,28 @@ module.exports = {
                 }]
             },
             {
-                test: /\.vue$/,
+                test: /\.vue$/, // 处理 vue 组建文件
                 use: 'vue-loader'
             }
         ]
     },
-    plugins: [
-        new HtmlWebpackPlugin({
-            filename: path.resolve(__dirname, '../dist/index.html'),
-            template: path.resolve(__dirname, '../public/index.html'),
-            inject: true
+    plugins: [ // 插件选项
+        new HtmlWebpackPlugin({ // 处理 index.html 文件
+            filename: path.resolve(__dirname, '../dist/index.html'), // 生成的 html 文件名
+            template: path.resolve(__dirname, '../public/index.html'), // 模板文件
+            inject: true // 是否把编译的 js，css 文件地址 注入到 html 文件中
         }),
-        new CopyWebpackPlugin([{
+        new CopyWebpackPlugin([{ // 处理一些静态文件，直接复制到指定文件夹中
             from: path.resolve(__dirname, '../public/static'),
             to: 'static',
             ignore: ['.*']
         }]),
-        new VueLoaderPlugin(),
-        new webpack.HotModuleReplacementPlugin()
+        new VueLoaderPlugin(), // 处理 vue 组建的插件
+        new webpack.HotModuleReplacementPlugin() // 热更新模块
         // new webpack.optimize.SplitChunksPlugin()
     ],
-    resolve: {
-        alias: {
+    resolve: { // 解析选项
+        alias: { // 别名，减少查找时间
             "vue$": "vue/dist/vue.esm.js",
             "@": path.resolve(__dirname, '../src'),
         },
