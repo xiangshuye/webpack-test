@@ -31,11 +31,11 @@ module.exports = merge(baseConfig, {
             verbose: true,
             dry: false
         }),
-        new MiniCssExtractPlugin({
+        new MiniCssExtractPlugin({ // 抽取 css ,生成文件并压缩
             filename: 'css/[name].[hash].css',
             chunkFilename: 'css/[id].[hash].css'
         }),
-        new webpack.DllReferencePlugin({
+        new webpack.DllReferencePlugin({ // 连接清单文件，不再打包
             context: path.resolve(__dirname, '..'),
             manifest: require('./vendor-manifest.json')
         }),
