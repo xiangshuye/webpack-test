@@ -1,5 +1,7 @@
 import router from './index';
 
+// 根据业务逻辑 待完善
+
 router.beforeEach((to, from, next) => {
     console.log(to);
     let user = sessionStorage.getItem("username");
