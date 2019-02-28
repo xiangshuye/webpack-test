@@ -1,11 +1,18 @@
 import router from './index';
+
 router.beforeEach((to, from, next) => {
+    console.log(to);
     let user = sessionStorage.getItem("username");
-    if(user && to.path !== '/login'){
-        next(); // 待完善菜单进入权限
-    }else{
-        sessionStorage.clear();
-        next('/login');
+    if (user == null && to.path != '/login') {
+      next('/login');
+    } else {
+      if (to.path == '/login') {
+        next();
+      } else if(to.path === '/'){
+        next('/index');
+      }else{
+        next();
+      }
     }
 })
 
