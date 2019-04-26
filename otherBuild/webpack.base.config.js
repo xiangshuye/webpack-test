@@ -8,12 +8,14 @@ const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
 module.exports = {
     entry: {
         app: path.resolve(__dirname, "../src/index.js"),
-        //vendor: ['vue', 'vue-router', 'axios', 'echarts']
+        vendor: ['vue', 'vue-router', 'axios', 'echarts']
     },
     module: {
-        rules: [{
+        rules: [
+            {
                 test: /\.vue$/,
-                use: 'vue-loader'
+                loader: 'vue-loader',
+                exclude: /node_modules/
             },
             {
                 test: /\.js$/,
@@ -68,10 +70,7 @@ module.exports = {
             ignore: ['.*']
         }]),
         new AddAssetHtmlPlugin({ // 为何没用？
-            filepath: 'http://api.map.baidu.com/api?v=2.0&ak=eIGwkbkGLzFGy3bVduSUXlBcPMQEM5fi',
-            outputPath: '../dist/js',
-            publicPath: './js',
-            includeSourcemap: false
+            filepath: 'http://api.map.baidu.com/api?v=2.0&ak=eIGwkbkGLzFGy3bVduSUXlBcPMQEM5fi'
         })
     ],
     optimization: {

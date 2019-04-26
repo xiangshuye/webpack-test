@@ -9,7 +9,13 @@ module.exports = {
         app: path.resolve(__dirname, "../src/index.js")
     },
     module: { // 模块选项
-        rules: [{
+        rules: [
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                exclude: /node_modules/
+            },
+            {
                 test: /\.js$/, // 对 js 文件进行处理
                 use: 'babel-loader',
                 exclude: /node_modules/
@@ -33,10 +39,6 @@ module.exports = {
                         name: path.posix.join('fonts', '[name].[hash:7].[ext]')
                     }
                 }]
-            },
-            {
-                test: /\.vue$/, // 处理 vue 组建文件
-                use: 'vue-loader'
             }
         ]
     },

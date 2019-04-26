@@ -3,12 +3,16 @@ const config = require('./webpack.pro.config')
 const chalk = require('chalk')
 const rm = require('rimraf')
 const path = require('path')
+const ora = require('ora')
 
+const spinner = ora('build start...')
+spinner.start();
 rm(path.join(path.resolve(__dirname, '../dist'), 'static'), err => {
     if (err) {
         throw new Error(err)
     }
     webpack(config, (err, stats) => {
+        spinner.stop();
         if(err) throw err
         process.stdout.write(stats.toString({
             colors: true,

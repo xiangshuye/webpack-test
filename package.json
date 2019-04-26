@@ -8,7 +8,8 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.config.js",
     "start": "npm run dev",
     "dll": "webpack --config build/webpack.dll.config.js",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "build1": "node otherBuild/build.js"
   },
   "author": "xueliang",
   "license": "MIT",
