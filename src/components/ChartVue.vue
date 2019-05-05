@@ -56,9 +56,9 @@ export default {
   },
   mounted() {
     this.init();
-    window.onresize = function() {
+    window.onresize = () => {
       this.chart.resize();
-    }.bind(this);
+    };
   }
 };
 </script>
