@@ -2,7 +2,7 @@
   <div>
     <span>123</span>
     <span>
-      {{count}}
+      {{count}} {{page}}
     </span>
     <button type="button" @click='add'>提交</button>
   </div>
@@ -11,7 +11,7 @@
 <script>
 import { mapState } from 'vuex'
 export default {
-    name: "App",
+    name: "UserList",
     data(){
         return {
             // count: this.$store.state.count,
@@ -33,7 +33,7 @@ export default {
     mounted(){
     },
     created(){
-        console.dir(this.$store.state.count)
+
     }
 }
 </script>
