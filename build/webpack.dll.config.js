@@ -7,7 +7,8 @@ module.exports = {
     'vue/dist/vue.esm.js',
     'vue-router',
     'axios',
-    'echarts'
+    'echarts',
+    'vuex'
     ]
   },
   output: {

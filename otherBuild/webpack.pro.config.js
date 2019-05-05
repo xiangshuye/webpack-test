@@ -3,6 +3,8 @@ const merge = require('webpack-merge')
 const baseConfig = require('./webpack.base.config')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+
 
 module.exports = merge(baseConfig, {
     mode: 'production',
@@ -32,6 +34,14 @@ module.exports = merge(baseConfig, {
         new MiniCssExtractPlugin({
             filename: 'css/[name].[hash].css',
             chunkFilename: 'css/[id].[hash].css'
+        }),
+        new OptimizeCssAssetsPlugin({
+            assetNameRegExp: /\.css$/g,
+            cssProcessor: require('cssnano'),
+            cssProcessorPluginOptions: {
+                preset: ['default', { discardComments: { removeAll: true } }],
+            },
+            canPrint: true
         })
     ]
 })

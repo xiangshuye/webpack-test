@@ -8,7 +8,7 @@ const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
 module.exports = {
     entry: {
         app: path.resolve(__dirname, "../src/index.js"),
-        vendor: ['vue', 'vue-router', 'axios', 'echarts']
+        vendor: ['vue', 'vue-router', 'axios', 'echarts','vuex']
     },
     module: {
         rules: [
@@ -56,14 +56,6 @@ module.exports = {
         }),
         new VueLoaderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        // new webpack.optimize.SplitChunksPlugin({
-        //     chunks: "all",
-        //     minSize: 20000,
-        //     minChunks: 1,
-        //     maxAsyncRequests: 5,
-        //     maxInitialRequests: 3,
-        //     name: true
-        // }),
         new CopyWebpackPlugin([{
             from: path.resolve(__dirname, '../public/static'),
             to: 'static',
@@ -86,7 +78,7 @@ module.exports = {
                     name: 'vendor',
                     test: /[\\/]node_modules[\\/]/,
                     chunks: 'all',
-                    priority: 10
+                    priority: -10
                 }
             }
         }
