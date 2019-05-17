@@ -26,7 +26,7 @@ module.exports = {
                     loader: 'url-loader',
                     options: {
                         limit: 10240,
-                        name: path.posix.join('static', 'img/[name].[hash:7].[ext]')
+                        name: path.posix.join('img/[name].[hash:7].[ext]')
                     }
                 }]
             },
