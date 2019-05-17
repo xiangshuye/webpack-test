@@ -3,5 +3,5 @@ export const routes = [{
     meta: {
         title: '登录'
     },
-        component: (resolve) => require(['@/views/userManage/user/userList.vue'], resolve)
+    component: (resolve) => require(['@/views/userManage/user/userList.vue'], resolve)
 }]

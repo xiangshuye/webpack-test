@@ -19,7 +19,7 @@ export default {
     },
     computed:{
       count(){
-        return  this.$store.state.count
+        return  this.$store.state.user.count
       },
       ...mapState([
         'page'
@@ -27,7 +27,7 @@ export default {
     },
     methods:{
       add(){
-        this.$store.commit('increment')
+        this.$store.commit('increments')
       }
     },
     mounted(){
