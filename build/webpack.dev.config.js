@@ -9,8 +9,6 @@ module.exports = merge(baseConfig, {
         path: path.resolve(__dirname, '../dist'),
         filename: '[name].js',
         publicPath: '/'
-        // assetsSubDirectory: 'static',
-        // assetsPublicPath: '/',
     },
     devServer: { // 开发服务器设置
         contentBase: '../dist',
