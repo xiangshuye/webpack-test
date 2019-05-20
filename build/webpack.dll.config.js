@@ -8,7 +8,8 @@ module.exports = {
     'vue-router',
     'axios',
     'echarts',
-    'vuex'
+    'vuex',
+    'iview'
     ]
   },
   output: {
