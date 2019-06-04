@@ -1,8 +1,16 @@
 <template>
-  <div :id="id" :style="{'width':width+'px','height':height+'px'}"></div>
+  <div :id="id" ref="myChart" :style="{'width':width+'px','height':height+'px'}"></div>
 </template>
 <script>
-import * as echarts from "echarts";
+// import * as echarts from "echarts";
+    // 引入 ECharts 主模块
+    import echarts from 'echarts/lib/echarts';
+    // 引入柱状图
+    require('echarts/lib/chart/bar');
+    // 引入提示框和标题组件
+    require('echarts/lib/component/legend');
+    require('echarts/lib/component/tooltip');
+    require('echarts/lib/component/title');
 export default {
   name: "ChartVue",
   props: {
@@ -49,7 +57,7 @@ export default {
   methods: {
     init() {
       if (!this.chart) {
-        this.chart = echarts.init(document.getElementById(this.id));
+            this.chart = echarts.init(this.$refs.myChart);
       }
       this.chart.setOption(this.option);
     }
