@@ -10,6 +10,13 @@ let user = {
         addPages(state) {
             state.page++
         }
+    },
+    actions:{ // 异步
+        async_count(ctx){ // 接收与 store 相同的 context
+            setTimeout(() => {
+                ctx.state.count++
+            }, 1000);
+        }
     }
 }
 

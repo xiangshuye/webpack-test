@@ -59,6 +59,12 @@ export default {
     window.onresize = () => {
       this.chart.resize();
     };
+  },
+  beforeDestroy(){
+     if (!this.chart) {
+        this.chart.dispose();
+        this.chart = null;z`
+      }
   }
 };
 </script>

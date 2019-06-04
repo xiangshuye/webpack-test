@@ -21,13 +21,14 @@ export default {
       count(){
         return  this.$store.state.user.count
       },
-      ...mapState([
-        'page'
-      ])
+      ...mapState({
+        'page': state => state.user.page,
+      })
     },
     methods:{
       add(){
         this.$store.commit('increments')
+        this.$store.dispatch('async_count')
       }
     },
     mounted(){
