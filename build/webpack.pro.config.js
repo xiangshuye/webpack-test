@@ -27,11 +27,11 @@ module.exports = merge(baseConfig, {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(['dist/'], { // 编译前删除出口文件夹，防止文件体积过大
-            root: path.resolve(__dirname, '../'),
-            verbose: true,
-            dry: false
-        }),
+        // new CleanWebpackPlugin(['dist/'], { // 编译前删除出口文件夹，防止文件体积过大
+        //     root: path.resolve(__dirname, '../'),
+        //     verbose: true,
+        //     dry: false
+        // }),
         new MiniCssExtractPlugin({ // 抽取 css ,生成文件并压缩
             filename: 'css/[name].[hash].css',
             chunkFilename: 'css/[id].[hash].css'

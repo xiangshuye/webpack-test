@@ -13,6 +13,7 @@ let user = {
     },
     actions:{ // 异步
         async_count(ctx){ // 接收与 store 相同的 context
+            console.log(ctx)
             setTimeout(() => {
                 ctx.state.count++
             }, 1000);

@@ -3,14 +3,14 @@
 </template>
 <script>
 // import * as echarts from "echarts";
-    // 引入 ECharts 主模块
-    import echarts from 'echarts/lib/echarts';
-    // 引入柱状图
-    require('echarts/lib/chart/bar');
-    // 引入提示框和标题组件
-    require('echarts/lib/component/legend');
-    require('echarts/lib/component/tooltip');
-    require('echarts/lib/component/title');
+// 引入 ECharts 主模块
+import echarts from "echarts/lib/echarts";
+// 引入柱状图
+require("echarts/lib/chart/bar");
+// 引入提示框和标题组件
+require("echarts/lib/component/legend");
+require("echarts/lib/component/tooltip");
+require("echarts/lib/component/title");
 export default {
   name: "ChartVue",
   props: {
@@ -57,7 +57,7 @@ export default {
   methods: {
     init() {
       if (!this.chart) {
-            this.chart = echarts.init(this.$refs.myChart);
+        this.chart = echarts.init(this.$refs.myChart);
       }
       this.chart.setOption(this.option);
     }
@@ -68,11 +68,14 @@ export default {
       this.chart.resize();
     };
   },
-  beforeDestroy(){
-     if (!this.chart) {
-        this.chart.dispose();
-        this.chart = null;z`
-      }
+  beforeDestroy() {
+    if (!this.chart) {
+      this.chart.dispose();
+      this.chart = null;
+    }
   }
 };
 </script>
+
+<style>
+</style>

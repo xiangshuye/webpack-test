@@ -7,7 +7,7 @@ const path = require('path')
 const spinner = ora('build start...')
 spinner.start();
 // 打包前删除出口文件夹
-rm(path.join(path.resolve(__dirname, '../dist'), 'static'), err => {
+rm(path.join(path.resolve(__dirname, '../dist')), err => {
     if (err) {
         throw new Error(err)
     }
