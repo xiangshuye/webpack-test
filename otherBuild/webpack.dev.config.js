@@ -21,11 +21,11 @@ module.exports = merge(baseConfig, {
         rules:[
             {
                 test: /\.css$/,
-                use: ['style-loader', 'vue-style-loader','css-loader', 'postcss-loader']
+                use: ['style-loader', 'vue-style-loader', 'postcss-loader','css-loader']
             },
             {
                 test: /.less$/,
-                use: ['style-loader', 'vue-style-loader','css-loader',  'postcss-loader','less-loader']
+                use: ['style-loader', 'vue-style-loader', 'postcss-loader', 'css-loader', 'less-loader']
             }
         ]
     }
