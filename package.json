@@ -18,7 +18,7 @@
     "url": "git@github.com:xl07097/webpack-test.git"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "babel-polyfill": "^6.26.0",
     "crypto-js": "^3.1.9-1",
     "echarts": "^4.2.0-rc.2",
