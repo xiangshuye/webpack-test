@@ -26,6 +26,13 @@ export default {
       })
     },
     methods:{
+      userList(){
+        fetch("http://localhost:9097/note/user/list")
+        .then(data => data.json())
+        .then(data => {
+            console.log(data)
+        })
+      },
       add(){
         this.$store.commit('increments')
         this.$store.dispatch('async_count')
