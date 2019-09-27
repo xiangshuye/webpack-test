@@ -4,7 +4,7 @@ import store from '@/store/index'
 import iView from 'iview'
 import App from './App';
 
-import 'iview/dist/styles/iview.css';
+import './common.less';
 
 Vue.use(iView)
 

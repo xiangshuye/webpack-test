@@ -1,6 +1,7 @@
 <template>
   <div>
     <span>123</span>
+    <i-button type="primary">哈哈</i-button>
   </div>
 </template>
 

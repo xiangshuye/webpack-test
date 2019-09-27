@@ -24,7 +24,12 @@ module.exports = merge(baseConfig, {
             },
             {
                 test: /\.less$/,
-                use: ['style-loader', 'vue-style-loader', 'css-loader', 'postcss-loader', 'less-loader']
+                use: ['style-loader', 'vue-style-loader', 'css-loader', 'postcss-loader', {
+                    loader: 'less-loader',
+                    options: {
+                        javascriptEnabled: true
+                    }
+                }]
             }
         ]
     }
