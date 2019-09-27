@@ -7,7 +7,7 @@ module.exports = merge(baseConfig, {
     devtool: 'cheap-module-eval-source-map', // 生成 map 文件，选项
     output: { // 出口
         path: path.resolve(__dirname, '../dist'),
-        filename: '[name].js',
+        filename: 'js/[name].js',
         publicPath: '/'
     },
     devServer: { // 开发服务器设置
@@ -20,10 +20,10 @@ module.exports = merge(baseConfig, {
     module: {
         rules: [{
                 test: /\.css$/, // 处理 css
-                use: ['style-loader', 'vue-style-loader', 'postcss-loader', 'css-loader']
+                use: ['style-loader', 'vue-style-loader',  'css-loader', 'postcss-loader']
             },
             {
-                test: /.less$/,
+                test: /\.less$/,
                 use: ['style-loader', 'vue-style-loader', 'css-loader', 'postcss-loader', 'less-loader']
             }
         ]

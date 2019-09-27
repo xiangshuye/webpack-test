@@ -2,7 +2,7 @@ const path = require('path')
 const webpack = require("webpack")
 const merge = require('webpack-merge')
 const baseConfig = require('./webpack.base.config')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
@@ -13,25 +13,21 @@ module.exports = merge(baseConfig, {
     output: {
         path: path.resolve(__dirname, '../dist'),
         filename: 'js/[name].[hash].js',
-        publicPath: './'
+        publicPath: '/'
     },
     module: {
         rules: [{
                 test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader, 'postcss-loader', 'css-loader']
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
             },
             {
                 test: /.less$/,
-                use: [MiniCssExtractPlugin.loader, 'postcss-loader', 'css-loader', 'less-loader']
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'less-loader']
             }
         ]
     },
     plugins: [
-        // new CleanWebpackPlugin(['dist/'], { // 编译前删除出口文件夹，防止文件体积过大
-        //     root: path.resolve(__dirname, '../'),
-        //     verbose: true,
-        //     dry: false
-        // }),
+        new CleanWebpackPlugin(),// 编译前删除出口文件夹，防止文件体积过大，默认删除 output.path 路径文件夹
         new MiniCssExtractPlugin({ // 抽取 css ,生成文件并压缩
             filename: 'css/[name].[hash].css',
             chunkFilename: 'css/[id].[hash].css'
