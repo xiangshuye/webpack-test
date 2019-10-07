@@ -2,6 +2,13 @@ export const routes = [
     {
         path: '/',
         meta: {
+            title: '首页'
+        },
+        redirect: '/index'
+    },
+    {
+        path: '/login',
+        meta: {
             title: '登录'
         },
         redirect: '/index'
@@ -11,6 +18,6 @@ export const routes = [
         meta: {
             title: '首页'
         },
-        component: (resolve) => require(['@/views/userManage/user/userList.vue'], resolve)
+        component: (resolve) => require(['@/components/Layout.vue'], resolve)
     }
 ]
