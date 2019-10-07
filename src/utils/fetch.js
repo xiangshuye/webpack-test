@@ -7,9 +7,13 @@ import code from '@/config/statusCode'
 */
 
 let fetch = axios.create({
-    baseURL: 'http://192.168.1.49:3000',
+    baseURL: 'http://localhost:3002/api/',
     timeout: 10000,
     withCredentials: true,
+})
+
+fetch.interceptors.response.use(res => {
+    return res.data;
 })
 
 

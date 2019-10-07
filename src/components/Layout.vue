@@ -5,7 +5,7 @@
         <MyHeader></MyHeader>
       </Header>
       <Layout>
-        <Sider hide-trigger>
+        <Sider hide-trigger  :style="{width: '234px', minWidth: '234px', maxWidth: '234px'}">
           <MySide></MySide>
         </Sider>
         <Layout :style="{padding: '0 24px 24px'}">

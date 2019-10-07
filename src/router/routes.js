@@ -19,5 +19,21 @@ export const routes = [
             title: '首页'
         },
         component: (resolve) => require(['@/components/Layout.vue'], resolve)
+    },
+    {
+        path: '*',
+        meta: {
+            title: '404'
+        },
+        component: (resolve) => require(['@/components/Layout.vue'], resolve),
+        children: [
+            {
+                path: '/',
+                meta: {
+                    title: '404'
+                },
+                component: (resolve) => require(['@/components/404.vue'], resolve),
+            }
+        ]
     }
 ]

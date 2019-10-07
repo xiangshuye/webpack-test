@@ -1,12 +1,15 @@
 @import '~iview/src/styles/index.less';
 
-html,body,#app{
+html,
+body,
+#app,
+.layout {
     height: 100%;
+    >.ivu-layout{
+        height: 100%;
+    }
 }
 
-ivu-layout{
-    align-items: stretch;
-}
 .ivu-layout-header{
     height: 50px;
     padding: 0 20px;

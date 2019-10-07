@@ -1,34 +1,38 @@
 <template>
   <div>
-    <Menu active-name="1-2" theme="dark" width="auto" :open-names="['1']">
-      <Submenu name="1">
-        <template slot="title">
-          <Icon type="ios-navigate"></Icon>Item 1
+    <Menu accordion theme="dark" width="auto">
+      <Submenu v-for="item of menu" :key="item.id" :name="item.path">
+         <template slot="title">
+          {{item.title}}
         </template>
-        <MenuItem name="1-1">Option 1</MenuItem>
-        <MenuItem name="1-2">Option 2</MenuItem>
-        <MenuItem name="1-3">Option 3</MenuItem>
-      </Submenu>
-      <Submenu name="2">
-        <template slot="title">
-          <Icon type="ios-keypad"></Icon>Item 2
-        </template>
-        <MenuItem name="2-1">Option 1</MenuItem>
-        <MenuItem name="2-2">Option 2</MenuItem>
-      </Submenu>
-      <Submenu name="3">
-        <template slot="title">
-          <Icon type="ios-analytics"></Icon>Item 3
-        </template>
-        <MenuItem name="3-1">Option 1</MenuItem>
-        <MenuItem name="3-2">Option 2</MenuItem>
+        <MenuItem v-for="ls of item.children" :to="`/${item.path}/${ls.path}`" :key="ls.id" :name="ls.path">{{ls.title}}</MenuItem>
       </Submenu>
     </Menu>
   </div>
 </template>
 <script>
+import {getMenu} from '@/api/menu';
+
 export default {
-  name: "MySide"
+  name: "MySide",
+  data(){
+    return {
+      menu:[]
+    }
+  },
+  methods:{
+    search(){
+      getMenu().then(data => {
+        console.log(data);
+        if(data.code === 200){
+          this.menu = data.data;
+        }
+      })
+    }
+  },
+  created() {
+    this.search();
+  },
 };
 </script>
 
