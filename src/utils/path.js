@@ -4,7 +4,8 @@
 
 
 let path = {
-    getMenu: 'system/systemMenu'
+    getMenu: 'system/systemMenu',
+    userList: "/users/userList",
 }
 
 export default path;
