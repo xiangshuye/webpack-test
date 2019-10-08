@@ -2,7 +2,7 @@
   <div>
     <Menu accordion theme="dark" width="auto">
       <Submenu v-for="item of menu" :key="item.id" :name="item.path">
-         <template slot="title">
+         <template v-slot:title>
           {{item.title}}
         </template>
         <MenuItem v-for="ls of item.children" :to="`/${item.path}/${ls.path}`" :key="ls.id" :name="ls.path">{{ls.title}}</MenuItem>
