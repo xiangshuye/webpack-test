@@ -13,7 +13,7 @@ export default new Vuex.Store({
         increment(state) {
             state.count++
         },
-        addPage(state){
+        addPage(state) {
             state.page++
         }
     },
