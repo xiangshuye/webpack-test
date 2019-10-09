@@ -1,5 +1,8 @@
 @import '~iview/src/styles/index.less';
 
+@primary-color: #2d8cf0;
+
+
 html,
 body,
 #app,
@@ -9,7 +12,7 @@ body,
         height: 100%;
     }
 }
-
+/// *****************  ivu-layout
 .ivu-layout-header{
     height: 50px;
     padding: 0 20px;
@@ -32,4 +35,15 @@ body,
 ///*********************  ivu-page
 .ivu-page{
     margin-top: 20px;
+}
+
+
+
+
+
+
+.action {
+    .ivu-btn-text{
+        color: @primary-color;
+    }
 }

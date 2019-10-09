@@ -13,6 +13,10 @@ export function getUserList(data) {
     return $fetch.post(path.userList, data);
 }
 
+export function switchUserStatus(data) {
+    return $fetch.post(path.userStatus, data);
+}
+
 export function userLogout() {
     return $fetch.post(path.userLogout);
 }

@@ -6,6 +6,7 @@
 let path = {
     getMenu: 'system/systemMenu',
     userList: "/users/userList",
+    userStatus: '/users/changeUserStatus',
 }
 
 export default path;
