@@ -16,20 +16,22 @@
       </Row>
     </Form>
     <i-table :columns="columns" :data="tableData"></i-table>
-    <Page 
-      :current="pageConfig.page" 
-      :page-size="pageConfig.size"  
-      :total="pageConfig.total" 
-      :page-size-opts="pageConfig.pageOption"
+    <Page
+      :current="pageConfig.page"
+      :page-size="pageConfig.size"
+      :total="pageConfig.total"
+      :page-size-opts="pageConfig.opts"
       @on-change="pageChange"
-      @on-page-size-change="pageChange"
-      show-elevator 
-      show-sizer />
+      @on-page-size-change="sizeChange"
+      show-elevator
+      show-sizer
+    />
   </div>
 </template>
 
 <script>
 import { getUserList } from "@/api/user";
+import {timetrans} from '@/utils/dateUtils';
 
 export default {
   name: "UserList",
@@ -70,7 +72,10 @@ export default {
         },
         {
           title: "添加时间",
-          key: "createtime"
+          key: "createtime",
+          render: (h, params) => {
+            return h('span', null, timetrans(params.row.createtime))
+          }
         },
         {
           title: "状态",
@@ -145,18 +150,18 @@ export default {
           }
         }
       ],
-      pageConfig:{
+      pageConfig: {
         page: 1,
         size: 10,
         total: 0,
-        pageOption: [10, 20, 50]
+        opts: [10, 20, 50]
       }
     };
   },
   methods: {
     search() {
-      const {nameOrTel} = this.req;
-      const {page, size} = this.pageConfig;
+      const { nameOrTel } = this.req;
+      const { page, size } = this.pageConfig;
       let req = {
         name: nameOrTel,
         page,
@@ -166,7 +171,7 @@ export default {
         if (data.code === 200) {
           this.tableData = data.data;
           this.pageConfig.total = data.total;
-        
+
           window.scrollTo(0, 0);
         }
       });
@@ -181,19 +186,38 @@ export default {
       this.$Message.info("重置密码");
     },
     changeStatus(row) {
-      this.$Message.info("禁用||启用");
+      let status = row.status === 1 ? 2 : 1;
+      this.$fetch
+        .post(path.userStatus, JSON.stringify({ id: row._id, status: status }))
+        .then(data => {
+          if (data.code === 200) {
+            this.$message.success("用户状态修改成功");
+            this.search();
+          } else {
+            this.$message.success("用户状态修改失败");
+            // this.search();
+          }
+        })
+        .catch(err => {
+          window.console.log(err);
+          this.search();
+        });
     },
     trash(row) {
       this.$Message.info("删除");
     },
-    pageChange(page){
-
+    pageChange(page) {
+      this.pageConfig.page = page;
+      this.search();
     },
-    sizeChange(size){
-
+    sizeChange(size) {
+      this.pageConfig.size = size;
+      if (this.pageConfig.page === 1) {
+        this.pageChange(1);
+      }
     }
   },
-  created(){
+  created() {
     this.search();
   }
 };
