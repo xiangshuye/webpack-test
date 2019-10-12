@@ -13,7 +13,7 @@ module.exports = merge(baseConfig, {
     output: {
         path: path.resolve(__dirname, '../dist'),
         filename: 'js/[name].[hash].js',
-        publicPath: '/'
+        publicPath: '/dist/'
     },
     module: {
         rules: [{
@@ -22,7 +22,10 @@ module.exports = merge(baseConfig, {
             },
             {
                 test: /.less$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'less-loader']
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', {
+                    loader: 'less-loader', options: {
+                        javascriptEnabled: true
+                }}]
             }
         ]
     },
@@ -40,7 +43,7 @@ module.exports = merge(baseConfig, {
         new AddAssetHtmlPlugin([{ // 把生成的 dll.js 写入到 index.html 文件中
             filepath: path.resolve(__dirname, '../public/js/vendor.dll.js'),
             outputPath: '../dist/js', // 【坑：不要用path.resolve，否则打包进程结束不了】
-            publicPath: './js',
+            publicPath: '/js',
             includeSourcemap: false,
             // hash: true,
         }]),
