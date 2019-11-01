@@ -192,27 +192,6 @@ export default {
         if (data.code === 200) {
           this.tableData = data.data;
           this.pageConfig.total = data.total;
-          this.$nextTick(() => {
-            this.columns = [
-              {
-                type: "index",
-                title: "序号",
-                width: 60
-              },
-              {
-                title: "姓名",
-                key: "name"
-              },
-              {
-                title: "性别",
-                key: "gender",
-                render: (h, params) => {
-                  return h("span", null, params.row.gender === 1 ? "男" : "女");
-                }
-              }
-            ];
-          });
-
           window.scrollTo(0, 0);
         }
       });

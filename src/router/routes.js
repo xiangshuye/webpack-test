@@ -23,74 +23,98 @@ export const routes = [
     {
         "title": "账户管理",
         "path": "/account",
-        "icon": "",
+        meta: {
+            title: '账户管理'
+        },
         component: (resolve) => require(['@/components/Layout.vue'], resolve),
         "children": [
             {
                 "title": "账户信息",
                 "path": "accountInfo",
-                "icon": ""
+                meta: {
+                    title: '账户信息'
+                }
             }
         ]
     },
     {
         "title": "公告管理",
         "path": "/notice",
-        "icon": "",
+        meta: {
+            title: '公告管理'
+        },
         component: (resolve) => require(['@/components/Layout.vue'], resolve),
         "children": [
             {
                 "title": "公告信息",
                 "path": "noticeInfo",
-                "icon": ""
+                meta: {
+                    title: '公告信息'
+                }
             }
         ]
     },
     {
         "title": "短信管理",
         "path": "/message",
-        "icon": "",
+        meta: {
+            title: '短信管理'
+        },
         component: (resolve) => require(['@/components/Layout.vue'], resolve),
         "children": [
             {
                 "title": "短信统计",
                 "path": "messageStatistics",
-                "icon": ""
+                meta: {
+                    title: '短信统计'
+                }
             },
             {
 
                 "title": "模板审核",
                 "path": "templateCheck",
-                "icon": ""
+                meta: {
+                    title: '模板审核'
+                }
             },
             {
                 "title": "签名审核",
                 "path": "signatureCheck",
-                "icon": ""
+                meta: {
+                    title: '签名审核'
+                }
             }
         ]
     },
     {
         "title": "用户管理",
         "path": "/user",
-        "icon": "",
+        meta: {
+            title: '用户管理'
+        },
         component: (resolve) => require(['@/components/Layout.vue'], resolve),
         "children": [
             {
                 "title": "部门信息",
                 "path": "department",
-                "icon": ""
+                meta: {
+                    title: '部门信息'
+                },
             },
             {
                 "title": "用户信息",
                 "path": "userInfo",
-                "icon": "",
+                meta: {
+                    title: '用户信息'
+                },
                 component: (resolve) => require(['@/views/userManage/user/userList.vue'], resolve),
             },
             {
                 "title": "角色信息",
                 "path": "roleInfo",
-                "icon": ""
+                meta: {
+                    title: '角色信息'
+                }
             }
         ]
     },
@@ -98,31 +122,39 @@ export const routes = [
 
         "title": "监控中心",
         "path": "/monitorCenter",
-        "icon": "",
+        meta: {
+            title: '监控中心'
+        },
         component: (resolve) => require(['@/components/Layout.vue'], resolve),
         "children": [
             {
                 "title": "监控信息",
                 "path": "monitorMsg",
-                "icon": ""
+                meta: {
+                    title: '监控信息'
+                }
             },
 
             {
                 "title": "登录日志",
                 "path": "conLog",
-                "icon": ""
+                meta: {
+                    title: '登录日志'
+                }
             },
             {
                 "title": "操作日志",
                 "path": "operationlog",
-                "icon": ""
+                "meta": {
+                    title: '操作日志'
+                }
             }
         ]
     },
     {
-        path: '*',
-        meta: {
-            title: '404'
+        "path": '*',
+        "meta": {
+            "title": '404'
         },
         component: (resolve) => require(['@/components/Layout.vue'], resolve),
         children: [
