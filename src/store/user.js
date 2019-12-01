@@ -1,7 +1,10 @@
+import store from "./index";
+
 let user = {
     state: {
         count: 1,
-        page: 10
+        page: 10,
+        username: ''
     },
     mutations: { // 同步提交
         increments(state) {
@@ -9,6 +12,9 @@ let user = {
         },
         addPages(state) {
             state.page++
+        },
+        LOGIN_STATE(state, params) {
+            state.username = state.username
         }
     },
     actions:{ // 异步
@@ -17,6 +23,16 @@ let user = {
             setTimeout(() => {
                 ctx.state.count++
             }, 1000);
+        },
+        userLogin({ commit }, params) {
+
+        },
+        logout({commit}) {
+            return new Promise((resolve, reject) => {
+                sessionStorage.clear();
+                store.dispatch("clearRouter");
+                resolve(true);
+            })
         }
     }
 }
