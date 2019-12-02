@@ -47,3 +47,5 @@ let permission = {
 
     }
 }
+
+export default permission
