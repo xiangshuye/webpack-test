@@ -9,6 +9,11 @@
         }]
     ],
     "plugins": [
-        "transform-object-rest-spread"
+        "transform-object-rest-spread",
+        "transform-vue-jsx"
+        // ,["import",{
+        //     "libraryName":"iview",
+        //     "libraryDirectory":"src/components"
+        // }]
     ]
 }

@@ -117,54 +117,5 @@ export const routes = [
                 }
             }
         ]
-    },
-    {
-
-        "title": "监控中心",
-        "path": "/monitorCenter",
-        meta: {
-            title: '监控中心'
-        },
-        component: (resolve) => require(['@/components/Layout.vue'], resolve),
-        "children": [
-            {
-                "title": "监控信息",
-                "path": "monitorMsg",
-                meta: {
-                    title: '监控信息'
-                }
-            },
-
-            {
-                "title": "登录日志",
-                "path": "conLog",
-                meta: {
-                    title: '登录日志'
-                }
-            },
-            {
-                "title": "操作日志",
-                "path": "operationlog",
-                "meta": {
-                    title: '操作日志'
-                }
-            }
-        ]
-    },
-    {
-        "path": '*',
-        "meta": {
-            "title": '404'
-        },
-        component: (resolve) => require(['@/components/Layout.vue'], resolve),
-        children: [
-            {
-                path: '/',
-                meta: {
-                    title: '404'
-                },
-                component: (resolve) => require(['@/components/404.vue'], resolve),
-            }
-        ]
     }
 ]
