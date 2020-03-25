@@ -1,4 +1,4 @@
-import { routes } from '@/router/routes';
+import { asyncRouter, router, noRouter } from '@/router/routes';
 
 function getAsyncRouter(tmpRouter, perms) {
     let result = tmpRouter.filter(route => {
@@ -15,18 +15,18 @@ function getAsyncRouter(tmpRouter, perms) {
 
 let permission = {
     state: {
-        routers: routes,
+        routers: router,
         addRouter: [],
         refresh: false
     },
     mutations: {
         setRouter(state, router) {
-            state.routers = routes.concat(router);
+            state.routers = router.concat(router);
             state.addRouter = router;
             state.refresh = true;
         },
         clearRouter(state) {
-            state.routers = routes;
+            state.routers = router;
             state.addRouter = [];
             state.refresh = false;
         }

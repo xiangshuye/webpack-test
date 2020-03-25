@@ -1,4 +1,4 @@
-export const routes = [
+export const asyncRouter = [
     {
         path: '/',
         meta: {
@@ -6,13 +6,7 @@ export const routes = [
         },
         redirect: '/index'
     },
-    {
-        path: '/login',
-        meta: {
-            title: '登录'
-        },
-        redirect: '/index'
-    },
+
     {
         path: '/index',
         meta: {
@@ -115,6 +109,74 @@ export const routes = [
                 meta: {
                     title: '角色信息'
                 }
+            }
+        ]
+    },
+    {
+        title: "监控中心",
+        path: "/monitorCenter",
+        name: "monitorCenter",
+        meta: {
+            title: "监控中心"
+        },
+        component: resolve =>
+            require(["@/components/Layout.vue"], resolve),
+        children: [
+            {
+                title: "监控信息",
+                path: "monitorMsg",
+                name: "monitorMsg",
+                meta: {
+                    title: "监控信息"
+                },
+                component: resolve =>
+                    require(["@/views/list1.vue"], resolve)
+            },
+
+            {
+                title: "登录日志",
+                path: "conLog",
+                meta: {
+                    title: "登录日志"
+                }
+            },
+            {
+                title: "操作日志",
+                path: "operationlog",
+                meta: {
+                    title: "操作日志"
+                }
+            }
+        ]
+    },
+]
+
+export const router = [
+    {
+        path: '/login',
+        meta: {
+            title: '登录'
+        },
+        component: resolve => require(['@/components/Login.vue'], resolve)
+    }
+]
+
+export const noRouter = [
+    {
+        path: "*",
+        meta: {
+            title: "404"
+        },
+        component: resolve =>
+            require(["@/components/Layout.vue"], resolve),
+        children: [
+            {
+                path: "/",
+                meta: {
+                    title: "404"
+                },
+                component: resolve =>
+                    require(["@/components/404.vue"], resolve)
             }
         ]
     }

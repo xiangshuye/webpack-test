@@ -5,6 +5,7 @@
 
 let path = {
     getMenu: 'system/systemMenu',
+    userLogin: '',
     userList: "/users/userList",
     userStatus: '/users/changeUserStatus',
 }
