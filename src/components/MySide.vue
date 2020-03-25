@@ -8,26 +8,19 @@
             width="auto"
             ref="menu"
         >
-            <Submenu v-for="item of menu" :key="item.id" :name="item.path">
-                <template v-slot:title>
-                    {{ item.title }}
-                </template>
-                <MenuItem
-                    v-for="ls of item.children"
-                    :to="`/${item.path}/${ls.path}`"
-                    :key="ls.id"
-                    :name="ls.path"
-                    >{{ ls.title }}</MenuItem
-                >
-            </Submenu>
+        <RenderMenu v-for="m of menu" :menu="m" :path="`${m.path}`" :key="m.path"></RenderMenu>
         </Menu>
     </div>
 </template>
 <script>
 import { getMenu } from "@/api/menu";
+import RenderMenu from './RenderMenu';
 
 export default {
     name: "MySide",
+    components:{
+        RenderMenu
+    },
     data() {
         return {
             menu: [],
