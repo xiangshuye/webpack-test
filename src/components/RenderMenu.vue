@@ -1,7 +1,7 @@
 <template>
     <MenuItem
         v-if="!menu.children"
-        :to="`/${path}`"
+        :to="`/${to}`"
         :key="menu.id"
         :name="menu.path"
     >
@@ -30,6 +30,11 @@ export default {
         path:{
             type: String,
             default: ''
+        }
+    },
+    computed:{
+        to(v){
+            return this.path.split("/").filter(item => item).join("/");
         }
     }
 };
