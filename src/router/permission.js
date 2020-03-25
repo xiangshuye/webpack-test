@@ -8,7 +8,7 @@ router.beforeEach((to, from, next) => {
         sessionStorage.clear();
         next('/login');
     } else {
-        if (to.path === '/login' || to.path === '/') {
+        if (to.path === '/login') {
             sessionStorage.clear();
             next();
         } else if (store.state.permission.refresh) {
