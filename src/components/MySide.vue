@@ -37,6 +37,7 @@ export default {
         }
     },
     created() {
+        console.log(90);
         this.search();
     }
 };

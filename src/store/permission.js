@@ -1,4 +1,4 @@
-import { asyncRouter, router, noRouter } from '@/router/routes';
+import { asyncRouter, router as routers, noRouter } from '@/router/routes';
 
 function getAsyncRouter(tmpRouter, perms) {
     let result = tmpRouter.filter(route => {
@@ -15,33 +15,38 @@ function getAsyncRouter(tmpRouter, perms) {
 
 let permission = {
     state: {
-        routers: router,
+        routers: routers,
         addRouter: [],
         refresh: false
     },
     mutations: {
         setRouter(state, router) {
-            state.routers = router.concat(router);
-            state.addRouter = router;
+            // state.routers = router.concat(routers);
+            state.routers = [...routers, ...noRouter];
+
+            state.addRouter = [...asyncRouter];
             state.refresh = true;
         },
         clearRouter(state) {
-            state.routers = router;
+            state.routers = routers;
             state.addRouter = [];
             state.refresh = false;
         }
     },
     actions: {
-        getRouter({commit}) {
+        getRouter({ commit }) {
             return new Promise((resolve, reject) => {
-                getMenuByLoginUser().then(data => {
-                    let routers = [];
-                    if (data.code === 200) {
-                        routers = getAsyncRouter(routes,data.data);
-                    }
-                    commit('setRouter', routers);
-                    resolve();
-                })
+                commit('setRouter', []);
+                resolve();
+
+                // getMenuByLoginUser().then(data => {
+                //     let routers = [];
+                //     if (data.code === 200) {
+                //         routers = getAsyncRouter(routers, data.data);
+                //     }
+                //     commit('setRouter', routers);
+                //     resolve();
+                // })
             })
         }
 

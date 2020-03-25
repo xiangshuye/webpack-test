@@ -3,7 +3,7 @@ import store from '@/store/index';
 // 根据业务逻辑 待完善
 
 router.beforeEach((to, from, next) => {
-    let user = sessionStorage.getItem('userName');
+    let user = sessionStorage.getItem('username');
     if (!user && to.path !== '/login') {
         sessionStorage.clear();
         next('/login');
@@ -11,20 +11,20 @@ router.beforeEach((to, from, next) => {
         if (to.path === '/login' || to.path === '/') {
             sessionStorage.clear();
             next();
-        } else if (to.path === '/index') {
+        } else if (store.state.permission.refresh) {
             next();
         } else {
-            store.dispatch('setRouter').then(() => {
+            store.dispatch('getRouter').then(() => {
                 router.addRoutes(store.state.permission.addRouter);
                 next(to) // hack方法 确保addRoutes已完成
             })
-            let permission = JSON.parse(sessionStorage.getItem('permission'));
-            permission = permission || [];
-            if (permission.includes(to.name)) {
-                next();
-            } else {
-                next('/index');
-            }
+            // let permission = JSON.parse(sessionStorage.getItem('permission'));
+            // permission = permission || [];
+            // if (permission.includes(to.name)) {
+            //     next();
+            // } else {
+            //     next('/index');
+            // }
         }
     }
 })

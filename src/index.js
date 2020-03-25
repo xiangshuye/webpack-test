@@ -2,16 +2,21 @@ import Vue from 'vue';
 import router from '@/router/index';
 import store from '@/store/index'
 import iView
-// , {
-//     Layout, Header, Sider, Content, Menu, Submenu, Page,
-//     MenuItem, Form, Row, Col, FormItem, Input, Button, Table
-// }
+    // , {
+    //     Layout, Header, Sider, Content, Menu, Submenu, Page,
+    //     MenuItem, Form, Row, Col, FormItem, Input, Button, Table
+    // }
     from 'iview'
 import App from './App';
 
 import './common.less';
 
 Vue.use(iView)
+
+import './router/permission';
+
+
+
 // Vue.component("Layout", Layout);
 // Vue.component("Header", Header);
 // Vue.component("Header", Header);
