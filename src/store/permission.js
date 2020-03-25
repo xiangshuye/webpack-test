@@ -22,13 +22,13 @@ let permission = {
     mutations: {
         setRouter(state, router) {
             // state.routers = router.concat(routers);
-            state.routers = [...routers, ...noRouter];
+            state.routers = [...routers];
 
-            state.addRouter = [...asyncRouter];
+            state.addRouter = [...asyncRouter, ...noRouter];
             state.refresh = true;
         },
         clearRouter(state) {
-            state.routers = routers;
+            state.routers = [...routers];
             state.addRouter = [];
             state.refresh = false;
         }

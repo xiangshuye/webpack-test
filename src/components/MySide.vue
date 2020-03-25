@@ -1,6 +1,13 @@
 <template>
     <div>
-        <Menu accordion theme="dark" width="auto">
+        <Menu
+            accordion
+            theme="dark"
+            :open-names="openMenu"
+            :active-name="activeName"
+            width="auto"
+            ref="menu"
+        >
             <Submenu v-for="item of menu" :key="item.id" :name="item.path">
                 <template v-slot:title>
                     {{ item.title }}
@@ -23,7 +30,9 @@ export default {
     name: "MySide",
     data() {
         return {
-            menu: []
+            menu: [],
+            openMenu: [],
+            activeName: ""
         };
     },
     methods: {
@@ -32,12 +41,26 @@ export default {
                 console.log(data);
                 if (data.code === 200) {
                     this.menu = Object.freeze(data.data);
+                    this.setOpenMenu();
                 }
+            });
+        },
+        setOpenMenu() {
+            let r = this.$route.path.split("/").filter(item => item);
+            this.openMenu = Object.freeze(r);
+            this.activeName = r[r.length - 1];
+            this.$nextTick(() => {
+                this.$refs.menu.updateOpened();
+                this.$refs.menu.updateActiveName();
             });
         }
     },
+    watch: {
+        $route: function(to, from) {
+            this.setOpenMenu();
+        }
+    },
     created() {
-        console.log(90);
         this.search();
     }
 };

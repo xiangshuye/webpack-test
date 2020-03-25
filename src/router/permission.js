@@ -16,7 +16,7 @@ router.beforeEach((to, from, next) => {
         } else {
             store.dispatch('getRouter').then(() => {
                 router.addRoutes(store.state.permission.addRouter);
-                next(to) // hack方法 确保addRoutes已完成
+                next({...to}) // hack方法 确保addRoutes已完成
             })
             // let permission = JSON.parse(sessionStorage.getItem('permission'));
             // permission = permission || [];
