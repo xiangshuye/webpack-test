@@ -108,7 +108,8 @@ export const asyncRouter = [
                 "path": "roleInfo",
                 meta: {
                     title: '角色信息'
-                }
+                },
+                component: (resolve) => require(['@/views/userManage/role/Role.vue'], resolve),
             }
         ]
     },
