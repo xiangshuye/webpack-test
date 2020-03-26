@@ -5,6 +5,7 @@
             theme="dark"
             :open-names="openMenu"
             :active-name="activeName"
+            @on-select="selectMenu"
             width="auto"
             ref="menu"
         >
@@ -31,12 +32,15 @@ export default {
     methods: {
         search() {
             getMenu().then(data => {
-                console.log(data);
                 if (data.code === 200) {
                     this.menu = Object.freeze(data.data);
                     this.setOpenMenu();
                 }
             });
+        },
+        selectMenu(name){
+            console.log(name);
+            // this.$router.push({path: `${name}`});
         },
         setOpenMenu() {
             let r = this.$route.path.split("/").filter(item => item);

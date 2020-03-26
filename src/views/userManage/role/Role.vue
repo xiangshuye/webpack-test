@@ -1,8 +1,13 @@
 <template>
     <div>
         <Form inline>
-            <FormItem lable="角色名称">
-                <Input v-model="roleName" placeholder="请输入" :maxlength="20" style="width:200px;" />
+            <FormItem label="角色名称" :label-width="70">
+                <Input
+                    v-model="roleName"
+                    placeholder="请输入"
+                    :maxlength="20"
+                    style="width:200px;"
+                />
             </FormItem>
             <FormItem>
                 <Button type="primary" @click="searchInit">查&nbsp;询</Button>
