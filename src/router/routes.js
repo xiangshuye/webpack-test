@@ -1,6 +1,7 @@
 export const asyncRouter = [
     {
         path: '/',
+        name: '/',
         meta: {
             title: '首页'
         },
@@ -9,6 +10,7 @@ export const asyncRouter = [
 
     {
         path: '/index',
+        name: 'index',
         meta: {
             title: '首页'
         },
@@ -17,6 +19,7 @@ export const asyncRouter = [
     {
         "title": "账户管理",
         "path": "/account",
+        name: 'account',
         meta: {
             title: '账户管理'
         },
@@ -25,6 +28,7 @@ export const asyncRouter = [
             {
                 "title": "账户信息",
                 "path": "accountInfo",
+                name: 'accountInfo',
                 meta: {
                     title: '账户信息'
                 },
@@ -35,6 +39,7 @@ export const asyncRouter = [
     {
         "title": "公告管理",
         "path": "/notice",
+        name: 'notice',
         meta: {
             title: '公告管理'
         },
@@ -43,6 +48,7 @@ export const asyncRouter = [
             {
                 "title": "公告信息",
                 "path": "noticeInfo",
+                name: 'noticeInfo',
                 meta: {
                     title: '公告信息'
                 }
@@ -52,6 +58,7 @@ export const asyncRouter = [
     {
         "title": "短信管理",
         "path": "/message",
+        name: 'message',
         meta: {
             title: '短信管理'
         },
@@ -60,6 +67,7 @@ export const asyncRouter = [
             {
                 "title": "短信统计",
                 "path": "messageStatistics",
+                name: 'messageStatistics',
                 meta: {
                     title: '短信统计'
                 }
@@ -68,6 +76,7 @@ export const asyncRouter = [
 
                 "title": "模板审核",
                 "path": "templateCheck",
+                name: 'templateCheck',
                 meta: {
                     title: '模板审核'
                 }
@@ -75,6 +84,7 @@ export const asyncRouter = [
             {
                 "title": "签名审核",
                 "path": "signatureCheck",
+                name: 'signatureCheck',
                 meta: {
                     title: '签名审核'
                 }
@@ -84,6 +94,7 @@ export const asyncRouter = [
     {
         "title": "用户管理",
         "path": "/user",
+        name: 'user',
         meta: {
             title: '用户管理'
         },
@@ -92,6 +103,7 @@ export const asyncRouter = [
             {
                 "title": "部门信息",
                 "path": "department",
+                name: 'department',
                 meta: {
                     title: '部门信息'
                 },
@@ -99,6 +111,7 @@ export const asyncRouter = [
             {
                 "title": "用户信息",
                 "path": "userInfo",
+                name: 'userInfo',
                 meta: {
                     title: '用户信息'
                 },
@@ -107,6 +120,7 @@ export const asyncRouter = [
             {
                 "title": "角色信息",
                 "path": "roleInfo",
+                name: 'roleInfo',
                 meta: {
                     title: '角色信息'
                 },
@@ -156,6 +170,7 @@ export const asyncRouter = [
 export const router = [
     {
         path: '/login',
+        name: 'login',
         meta: {
             title: '登录'
         },

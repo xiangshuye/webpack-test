@@ -44,7 +44,9 @@ export default {
                     }
                     // let allRouter = [...asyncRouter, ...noRouter];
                     // this.$router.addRoutes(allRouter);
-                    this.$router.push('/index');
+                    this.$router.push('/index').catch((err) => {
+                        console.log(err);
+                    });
                 });
         }
     }
