@@ -27,7 +27,8 @@ export const asyncRouter = [
                 "path": "accountInfo",
                 meta: {
                     title: '账户信息'
-                }
+                },
+                component: (resolve) => require(['@/views/Tree.vue'], resolve),
             }
         ]
     },
