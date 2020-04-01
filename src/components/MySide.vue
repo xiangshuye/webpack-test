@@ -49,7 +49,7 @@ export default {
         }
     },
     watch: {
-        $route: function(to, from) {
+        '$route': function(to, from) {
             this.setOpenMenu();
         }
     },
