@@ -1,22 +1,5 @@
 export const asyncRouter = [
     {
-        path: '/',
-        name: '/',
-        meta: {
-            title: '首页'
-        },
-        redirect: '/index'
-    },
-
-    {
-        path: '/index',
-        name: 'index',
-        meta: {
-            title: '首页'
-        },
-        component: (resolve) => require(['@/components/Layout.vue'], resolve)
-    },
-    {
         "title": "账户管理",
         "path": "/account",
         name: 'account',
@@ -177,6 +160,22 @@ export const router = [
             title: '登录'
         },
         component: resolve => require(['@/components/Login.vue'], resolve)
+    },
+    {
+        path: '/',
+        name: '/',
+        meta: {
+            title: '首页'
+        },
+        redirect: '/index'
+    },
+    {
+        path: '/index',
+        name: 'index',
+        meta: {
+            title: '首页'
+        },
+        component: (resolve) => require(['@/components/Layout.vue'], resolve)
     }
 ]
 
