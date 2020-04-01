@@ -152,6 +152,7 @@ export const asyncRouter = [
             {
                 title: "登录日志",
                 path: "conLog",
+                name: "conLog",
                 meta: {
                     title: "登录日志"
                 }
@@ -159,6 +160,7 @@ export const asyncRouter = [
             {
                 title: "操作日志",
                 path: "operationlog",
+                name: "operationlog",
                 meta: {
                     title: "操作日志"
                 }
