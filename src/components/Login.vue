@@ -42,8 +42,6 @@ export default {
                     if(res.code === 200){
                         sessionStorage.setItem("username", res.data[0].name);
                     }
-                    // let allRouter = [...asyncRouter, ...noRouter];
-                    // this.$router.addRoutes(allRouter);
                     this.$router.push('/index').catch((err) => {
                         console.log(err);
                     });
