@@ -1,6 +1,6 @@
 import router from './index';
 import store from '@/store/index';
-import Vue from 'vue';
+// import Vue from 'vue';
 // 根据业务逻辑 待完善
 
 router.beforeEach((to, from, next) => {
@@ -17,10 +17,7 @@ router.beforeEach((to, from, next) => {
         } else {
             store.dispatch('getRouter').then(() => {
                 router.addRoutes(store.state.permission.addRouter);
-                Vue.nextTick(() => {
-                    next({ ...to }) // hack方法 确保addRoutes已完成
-                })
-
+                next({ ...to }) // hack方法 确保addRoutes已完成
             })
             // let permission = JSON.parse(sessionStorage.getItem('permission'));
             // permission = permission || [];
