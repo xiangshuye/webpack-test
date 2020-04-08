@@ -18,7 +18,7 @@
 
 <script>
 import qs from "qs";
-import { asyncRouter, router, noRouter } from '@/router/routes';
+import { asyncRouter, router, noRouter } from "@/router/routes";
 // import VueRoute from '@/router/index';
 export default {
     name: "Login",
@@ -39,10 +39,10 @@ export default {
                 .then(res => res.json())
                 .then(res => {
                     console.log(res);
-                    if(res.code === 200){
+                    if (res.code === 200) {
                         sessionStorage.setItem("username", res.data[0].name);
                     }
-                    this.$router.push('/index').catch((err) => {
+                    this.$router.push("/index").catch(err => {
                         console.log(err);
                     });
                 });
