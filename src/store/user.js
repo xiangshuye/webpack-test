@@ -33,7 +33,7 @@ let user = {
                 commit("LOGIN_STATE", {
                     username: ''
                 })
-                store.dispatch("clearRouter");
+                commit("clearRouter");
                 resolve(true);
             })
         }
