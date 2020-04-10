@@ -34,10 +34,10 @@ export default {
         login() {
             userLogin(this.user).then(res => {
                 if (res.code === 200) {
-                    this.$store.commit("LOGIN_STATE",{
-                        username: res.data.name
-                    })
-                    // sessionStorage.setItem("username", res.data.name);
+                    // this.$store.commit("LOGIN_STATE",{
+                    //     username: res.data.name
+                    // })
+                    sessionStorage.setItem("username", res.data.name);
                 }
                 this.$router.push("/index").catch(err => {
                     // console.log(err);

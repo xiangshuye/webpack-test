@@ -1,5 +1,3 @@
-import store from "./index";
-
 let user = {
     state: {
         count: 1,
