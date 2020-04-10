@@ -2,7 +2,9 @@ import $fetch from "@/utils/fetch";
 import path from "@/utils/path";
 
 export function userLogin(data) {
-    return $fetch.post(path.userLogin, data);
+    return $fetch.get(path.userLogin, {
+        params: data
+    });
 }
 
 export function getLoginUserInfo() {
