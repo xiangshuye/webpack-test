@@ -1,4 +1,4 @@
-import router from './index';
+import router from './router/index';
 import store from '@/store/index';
 // import Vue from 'vue';
 // 根据业务逻辑 待完善
