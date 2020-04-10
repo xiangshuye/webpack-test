@@ -17,9 +17,9 @@
 </template>
 
 <script>
-import qs from "qs";
-import { asyncRouter, router, noRouter } from '@/router/routes';
-// import VueRoute from '@/router/index';
+import { asyncRouter, router, noRouter } from "@/router/routes";
+import { userLogin } from "@/api/user";
+
 export default {
     name: "Login",
     data() {
@@ -32,20 +32,17 @@ export default {
     },
     methods: {
         login() {
-            fetch(
-                "http://localhost:3002/api/users/login?" +
-                    qs.stringify(this.user)
-            )
-                .then(res => res.json())
-                .then(res => {
-                    console.log(res);
-                    if(res.code === 200){
-                        sessionStorage.setItem("username", res.data[0].name);
-                    }
-                    // let allRouter = [...asyncRouter, ...noRouter];
-                    // this.$router.addRoutes(allRouter);
-                    this.$router.push('/index');
+            userLogin(this.user).then(res => {
+                if (res.code === 200) {
+                    // this.$store.commit("LOGIN_STATE",{
+                    //     username: res.data.name
+                    // })
+                    sessionStorage.setItem("username", res.data.name);
+                }
+                this.$router.push("/index").catch(err => {
+                    // console.log(err);
                 });
+            });
         }
     }
 };

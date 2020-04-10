@@ -1,22 +1,5 @@
 export const asyncRouter = [
     {
-        path: '/',
-        name: '/',
-        meta: {
-            title: '首页'
-        },
-        redirect: '/index'
-    },
-
-    {
-        path: '/index',
-        name: 'index',
-        meta: {
-            title: '首页'
-        },
-        component: (resolve) => require(['@/components/Layout.vue'], resolve)
-    },
-    {
         "title": "账户管理",
         "path": "/account",
         name: 'account',
@@ -31,7 +14,8 @@ export const asyncRouter = [
                 name: 'accountInfo',
                 meta: {
                     title: '账户信息'
-                }
+                },
+                component: (resolve) => require(['@/views/Tree.vue'], resolve),
             }
         ]
     },
@@ -151,7 +135,7 @@ export const asyncRouter = [
             {
                 title: "登录日志",
                 path: "conLog",
-                name: 'conLog',
+                name: "conLog",
                 meta: {
                     title: "登录日志"
                 }
@@ -159,7 +143,7 @@ export const asyncRouter = [
             {
                 title: "操作日志",
                 path: "operationlog",
-                name: 'operationlog',
+                name: "operationlog",
                 meta: {
                     title: "操作日志"
                 }
@@ -176,6 +160,22 @@ export const router = [
             title: '登录'
         },
         component: resolve => require(['@/components/Login.vue'], resolve)
+    },
+    {
+        path: '/',
+        name: '/',
+        meta: {
+            title: '首页'
+        },
+        redirect: '/index'
+    },
+    {
+        path: '/index',
+        name: 'index',
+        meta: {
+            title: '首页'
+        },
+        component: (resolve) => require(['@/components/Layout.vue'], resolve)
     }
 ]
 

@@ -104,15 +104,6 @@ export default {
                     key: "action",
                     width: 260,
                     render: (h, params) => {
-                        // return (
-                        //     <div className="action">
-                        //         <button type="text" onclick={
-                        //             this.edit(params.row)
-                        //         }>
-                        //             编辑
-                        //         </button>
-                        //     </div>
-                        // );
                         return h(
                             "div",
                             {
@@ -224,16 +215,11 @@ export default {
             this.req.nameOrTel = "";
         },
         edit(row) {
-            var rou = [
-
-            ];
-
-            this.$router.addRoutes(rou);
             setTimeout(() => {
                 this.$router.push("/monitorCenter/monitorMsg");
                 console.log(this.$router);
                 console.log(this.$route);
-            }, 5000);
+            }, 1000);
             this.$Message.info("编辑");
         },
         resetPwd(row) {

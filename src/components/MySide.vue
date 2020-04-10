@@ -9,34 +9,52 @@
             width="auto"
             ref="menu"
         >
-        <RenderMenu v-for="m of menu" :menu="m" :path="`${m.path}`" :key="m.path"></RenderMenu>
+            <RenderMenu
+                v-for="m of menu"
+                :menu="m"
+                :path="`${m.path}`"
+                :key="m.path"
+            ></RenderMenu>
         </Menu>
     </div>
 </template>
 <script>
 import { getMenu } from "@/api/menu";
-import RenderMenu from './RenderMenu';
+import RenderMenu from "./RenderMenu";
+import { mapState } from "vuex";
 
 export default {
     name: "MySide",
-    components:{
+    components: {
         RenderMenu
+    },
+    computed: {
+        ...mapState({
+            menu: state => state.permission.menu
+        })
     },
     data() {
         return {
-            menu: [],
+            // menu: [],
             openMenu: [],
             activeName: ""
         };
     },
     methods: {
         search() {
-            getMenu().then(data => {
-                if (data.code === 200) {
-                    this.menu = Object.freeze(data.data);
-                    this.setOpenMenu();
-                }
+            this.$store.dispatch("getMenu").then(() => {
+                this.setOpenMenu();
             });
+            // getMenu().then(data => {
+            //     if (data.code === 200) {
+            //         // this.menu = Object.freeze(data.data);
+            //         this.$store.commit("setMenu", {
+            //             menu: data.data,
+            //             perm: this.$store.state.permission.perm
+            //         });
+            //         this.setOpenMenu();
+            //     }
+            // });
         },
         selectMenu(name){
             console.log(name);
