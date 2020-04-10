@@ -1,6 +1,6 @@
 <template>
     <MenuItem
-        v-if="!menu.children"
+        v-if="!menu.children || !menu.children.length"
         :to="`/${to}`"
         :key="menu.id"
         :name="menu.path"

@@ -1,44 +1,43 @@
 <template>
-    <Tree :data="data2" show-checkbox></Tree>
+    <div>
+        <Button @click="getSelect">get</Button>
+        <Tree ref="tree" :data="data2" show-checkbox></Tree>
+    </div>
 </template>
 <script>
-    export default {
-        data () {
-            return {
-                data2: [
-                    {
-                        title: 'parent 1',
-                        expand: true,
-                        children: [
-                            {
-                                title: 'parent 1-1',
+import { getMenu } from "@/api/menu";
+export default {
+    data() {
+        return {
+            data2: Object.freeze([])
+        };
+    },
+    methods: {
+        getSelect(){
+            const arr = this.$refs.tree.getCheckedNodes();
+            console.log(arr.map(el => el.id))
+            // console.log(this.$refs.tree.getCheckedNodes())
+        },
+        getmenu() {
+            getMenu().then(data => {
+                if (data.code === 200) {
+                    function ft(chl) {
+                        return chl.map(el => {
+                            return {
+                                ...el,
                                 expand: true,
-                                children: [
-                                    {
-                                        title: 'leaf 1-1-1'
-                                    },
-                                    {
-                                        title: 'leaf 1-1-2'
-                                    }
-                                ]
-                            },
-                            {
-                                title: 'parent 1-2',
-                                expand: true,
-                                children: [
-                                    {
-                                        title: 'leaf 1-2-1',
-                                        checked: true
-                                    },
-                                    {
-                                        title: 'leaf 1-2-1'
-                                    }
-                                ]
-                            }
-                        ]
+                                children: ft(el.children || []) || []
+                            };
+                        });
                     }
-                ]
-            }
+                    this.data2 = Object.freeze(ft(data.data));
+
+                }
+            });
         }
+    },
+    mounted() {
+        this.getmenu();
     }
+};
 </script>
