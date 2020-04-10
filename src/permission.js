@@ -4,7 +4,7 @@ import store from '@/store/index';
 // 根据业务逻辑 待完善
 
 router.beforeEach((to, from, next) => {
-    let user = sessionStorage.getItem('username');
+    let user = store.state.user.username;
     if (!user && to.path !== '/login') {
         sessionStorage.clear();
         next('/login');

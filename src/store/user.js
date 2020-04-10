@@ -14,11 +14,11 @@ let user = {
             state.page++
         },
         LOGIN_STATE(state, params) {
-            state.username = state.username
+            state.username = params.username
         }
     },
-    actions:{ // 异步
-        async_count(ctx){ // 接收与 store 相同的 context
+    actions: { // 异步
+        async_count(ctx) { // 接收与 store 相同的 context
             console.log(ctx)
             setTimeout(() => {
                 ctx.state.count++
@@ -27,9 +27,12 @@ let user = {
         userLogin({ commit }, params) {
 
         },
-        logout({commit}) {
+        logout({ commit }) {
             return new Promise((resolve, reject) => {
                 sessionStorage.clear();
+                commit("LOGIN_STATE", {
+                    username: ''
+                })
                 store.dispatch("clearRouter");
                 resolve(true);
             })

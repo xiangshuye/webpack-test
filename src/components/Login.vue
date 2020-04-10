@@ -17,10 +17,9 @@
 </template>
 
 <script>
-import qs from "qs";
 import { asyncRouter, router, noRouter } from "@/router/routes";
 import { userLogin } from "@/api/user";
-// import VueRoute from '@/router/index';
+
 export default {
     name: "Login",
     data() {
@@ -35,10 +34,13 @@ export default {
         login() {
             userLogin(this.user).then(res => {
                 if (res.code === 200) {
-                    sessionStorage.setItem("username", res.data.name);
+                    this.$store.commit("LOGIN_STATE",{
+                        username: res.data.name
+                    })
+                    // sessionStorage.setItem("username", res.data.name);
                 }
                 this.$router.push("/index").catch(err => {
-                    console.log(err);
+                    // console.log(err);
                 });
             });
         }
