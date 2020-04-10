@@ -40,7 +40,7 @@ export default {
                 .then(res => {
                     console.log(res);
                     if (res.code === 200) {
-                        sessionStorage.setItem("username", res.data[0].name);
+                        sessionStorage.setItem("username", res.data.name);
                     }
                     this.$router.push("/index").catch(err => {
                         console.log(err);
