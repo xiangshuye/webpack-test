@@ -182,7 +182,6 @@ export const router = [
 export const noRouter = [
     {
         path: "*",
-        name: '*',
         meta: {
             title: "404"
         },
