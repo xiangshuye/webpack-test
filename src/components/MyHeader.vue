@@ -1,7 +1,10 @@
 <template>
     <header class="myHeader">
         <div class="page-title">创客</div>
-        <div class="login-img" @click="logout">defr</div>
+        <div class="login-img" @click="logout">
+            <img src="/static/image/photo.png" alt="photo" />&nbsp;
+            defr
+        </div>
     </header>
 </template>
 
@@ -26,10 +29,18 @@ export default {
         color: springgreen;
     }
     .login-img {
+        display: flex;
+        align-items: center;
         padding: 0 10px;
+        font-size: 16px;
+        color: #fff;
         cursor: pointer;
+        img{
+            width: 28px;
+            border-radius: 50%;
+        }
         &:hover {
-            background: #eee;
+            background: rgba(255, 255, 255, 0.3);
         }
     }
 }
