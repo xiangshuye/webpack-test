@@ -66,7 +66,6 @@ module.exports = {
         }]),
         new VueLoaderPlugin(), // 处理 vue 组建的插件
         new webpack.HotModuleReplacementPlugin() // 热更新模块
-        // new webpack.optimize.SplitChunksPlugin()
     ],
     resolve: { // 解析选项
         alias: { // 别名，减少查找时间

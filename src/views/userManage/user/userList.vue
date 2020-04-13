@@ -30,16 +30,19 @@
             show-elevator
             show-sizer
         />
+        <Component :is="correntCom"></Component>
     </div>
 </template>
 
 <script>
 import { getUserList, switchUserStatus } from "@/api/user";
 import { timetrans } from "@/utils/dateUtils";
+import Add from "./Add";
 export default {
     name: "UserList",
     data() {
         return {
+            correntCom: null,
             req: {
                 nameOrTel: ""
             },
@@ -223,6 +226,10 @@ export default {
             this.$Message.info("编辑");
         },
         resetPwd(row) {
+            this.correntCom = Add;
+            setTimeout(() => {
+                this.correntCom = null;
+            }, 5000);
             this.$Message.info("重置密码");
         },
         changeStatus(row) {
