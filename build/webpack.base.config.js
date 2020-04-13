@@ -34,6 +34,7 @@ module.exports = {
                 use: [{
                     loader: 'url-loader',
                     options: {
+                        esModule: false, // 新版本包设置为 false
                         limit: 10240,
                         name: path.posix.join('img/[name].[hash:7].[ext]')
                     }
@@ -44,6 +45,7 @@ module.exports = {
                 use: [{
                     loader: 'url-loader',
                     options: {
+                        esModule: false, // 新版本包设置为 false
                         limit: 51200,
                         name: path.posix.join('fonts', '[name].[hash:7].[ext]')
                     }

@@ -26,6 +26,7 @@ module.exports = {
                 test: /\.(png|svg|jpe?g|gif)$/,
                 loader: 'url-loader',
                 options: {
+                    esModule: false,
                     limit: 102400,
                     name: path.posix.join('img/[name].[hash:7].[ext]')
                 }
@@ -34,6 +35,7 @@ module.exports = {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
                 loader: 'url-loader',
                 options: {
+                    esModule: false, // 新版本包设置为 false
                     limit: 51200,
                     name: path.posix.join('fonts/[name].[ext]')
                 }
@@ -42,6 +44,7 @@ module.exports = {
                 test: /\.(mp4|mp3)$/,
                 loader: 'url-loader',
                 options: {
+                    esModule: false,
                     limit: 51200,
                     name: path.posix.join('media/[name].[ext]')
                 }

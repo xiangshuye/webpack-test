@@ -2,8 +2,7 @@
     <header class="myHeader">
         <div class="page-title">创客</div>
         <div class="login-img" @click="logout">
-            <img src="/static/image/photo.png" alt="photo" />&nbsp;
-            defr
+            <img src="@/assets/photo.png" alt="photo" />&nbsp; defr
         </div>
     </header>
 </template>
@@ -35,7 +34,7 @@ export default {
         font-size: 16px;
         color: #fff;
         cursor: pointer;
-        img{
+        img {
             width: 28px;
             border-radius: 50%;
         }
