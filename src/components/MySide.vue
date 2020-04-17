@@ -57,7 +57,7 @@ export default {
             // });
         },
         selectMenu(name){
-            console.log(name);
+            // console.log(name);
             // this.$router.push({path: `${name}`});
         },
         setOpenMenu() {
