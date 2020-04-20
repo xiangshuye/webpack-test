@@ -1,5 +1,5 @@
 <template>
-    <Layout>
+    <Layout class="layout-wrapper">
         <Header>
             <MyHeader></MyHeader>
         </Header>

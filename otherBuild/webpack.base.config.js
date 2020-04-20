@@ -63,10 +63,7 @@ module.exports = {
             from: path.resolve(__dirname, '../public/static'),
             to: 'static',
             ignore: ['.*']
-        }]),
-        new AddAssetHtmlPlugin({ // 为何没用？
-            filepath: 'http://api.map.baidu.com/api?v=2.0&ak=eIGwkbkGLzFGy3bVduSUXlBcPMQEM5fi'
-        })
+        }])
     ],
     optimization: {
         splitChunks: {
