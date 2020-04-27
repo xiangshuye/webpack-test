@@ -150,6 +150,28 @@ export const asyncRouter = [
             }
         ]
     },
+    {
+        title: "高德地图",
+        path: "/map",
+        name: "map",
+        meta: {
+            title: "高德地图"
+        },
+        component: resolve =>
+            require(["@/components/Layout.vue"], resolve),
+        children: [
+            {
+                title: "地图",
+                path: "",
+                name: "sub",
+                meta: {
+                    title: "地图"
+                },
+                component: resolve =>
+                    require(["@/components/Map.vue"], resolve),
+            }
+        ]
+    }
 ]
 
 export const router = [
