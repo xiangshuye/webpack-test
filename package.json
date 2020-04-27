@@ -18,6 +18,7 @@
     "url": "git@github.com:xl07097/webpack-test.git"
   },
   "dependencies": {
+    "@amap/amap-jsapi-loader": "0.0.1",
     "axios": "^0.18.1",
     "babel-polyfill": "^6.26.0",
     "crypto-js": "^4.0.0",
