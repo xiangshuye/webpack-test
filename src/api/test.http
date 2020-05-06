@@ -1,2 +1,2 @@
-GET http://services.odata.org/V4/TripPinServiceRW/People HTTP/1.1
+GET http://localhost:3002/api/cars/lists HTTP/1.1
 Accept: application/json
