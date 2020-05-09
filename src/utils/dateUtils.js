@@ -1,182 +1,132 @@
-export function dateFormatFromString(str) {
-    return datetimeformatFromString(str).substr(0, 10)
-}
 
-export function stringFromDate(date) {
-    return datetimeformatFromString(date).substr(0, 16);
-}
-
-export function stringFromnDate(date) {
-    let t;
-    if (date) {
-        t = new Date(date);
-    } else {
-        t = new Date();
-    }
-    let year = t.getFullYear();
-    let month = t.getMonth() + 1;
-    if (month < 10) {
-        month = '0' + month;
-    }
-    let day = t.getDate();
-    if (day < 10) {
-        day = '0' + day;
-    }
-    let hour = t.getHours();
-    if (hour < 10) {
-        hour = '0' + hour;
-    }
-    let minute = t.getMinutes();
-    if (minute < 10) {
-        minute = '0' + minute;
-    }
-
-    return year + '年' + month + '月' + day + '日 ' + hour + ':' + minute;
-}
-
-export function stringFromnDateToNormal(date) {
-    let t;
-    if (date) {
-        t = new Date(date);
-    } else {
-        t = new Date();
-    }
-    let year = t.getFullYear();
-    let month = t.getMonth() + 1;
-    if (month < 10) {
-        month = '0' + month;
-    }
-    let day = t.getDate();
-    if (day < 10) {
-        day = '0' + day;
-    }
-    let hour = t.getHours();
-    if (hour < 10) {
-        hour = '0' + hour;
-    }
-    let minute = t.getMinutes();
-    if (minute < 10) {
-        minute = '0' + minute;
-    }
-
-    return month + '月' + day + '日 ' + hour + ':' + minute;
-}
-
-export function twoDateTime() {
-    let t = new Date();
-    let y = t.getFullYear();
-    let m = t.getMonth() + 1;
-    if (m < 10) {
-        m = '0' + m;
-    }
-    let date1 = y + '/' + m + '/01';
-    let date2 = null;
-    switch (m) {
-        case '01':
-        case '03':
-        case '05':
-        case '07':
-        case '08':
-        case '10':
-        case '12':
-            date2 = y + '/' + m + '/31';
-            break;
-        case '04':
-        case '06':
-        case '09':
-        case '11':
-            date2 = y + '/' + m + '/30';
-            break;
-        case '02':
-            if ((y % 4 === 0 && y % 100 !== 0) || y % 400 === 0) {
-                date2 = y + '/' + m + '/29';
-            } else {
-                date2 = y + '/' + m + '/28';
-            }
-            break;
-    }
-
-    return [new Date(date1 + ' 00:00'), new Date(date2 + ' 23:59')];
+Date.prototype.Format = function (tmpFmt) {  /// "yyyy.MM.dd hh:mm:ss"
+    var fmt = tmpFmt;
+    var o = {
+        "M+": this.getMonth() + 1, //月份
+        "d+": this.getDate(), //日
+        "h+": this.getHours(), //小时
+        "m+": this.getMinutes(), //分
+        "s+": this.getSeconds(), //秒
+        "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+        "S": this.getMilliseconds() //毫秒
+    };
+    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1
+        .length));
+    for (var k in o)
+        if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ?
+            (o[k]) : (("00" +
+                o[k]).substr(("" + o[k]).length)));
+    return fmt;
 }
 
 
+
+/**
+ *
+ * @param {*} str
+ * @return yyyy/MM/dd hh:mm:ss
+ */
 export function datetimeformatFromString(str) {
-    let t;
-    if (str) {
-        t = new Date(str);
-    } else {
-        t = new Date();
+    if (!str) {
+        return '';
     }
-    let year = t.getFullYear();
-    let month = t.getMonth() + 1;
-    if (month < 10) {
-        month = '0' + month;
+    return new Date(str).Format("yyyy/MM/dd hh:mm:ss")
+}
+/**
+ *
+ * @param {*} str
+ * @return yyyy/MM/dd
+ */
+export function datetimeformatFromString1(str) {
+    if (!str) {
+        return '';
     }
-    let day = t.getDate();
-    if (day < 10) {
-        day = '0' + day;
-    }
-    let hour = t.getHours();
-    if (hour < 10) {
-        hour = '0' + hour;
-    }
-    let minute = t.getMinutes();
-    if (minute < 10) {
-        minute = '0' + minute;
-    }
-    let second = t.getSeconds();
-    if (second < 10) {
-        second = '0' + second;
-    }
+    return new Date(str).Format("yyyy/MM/dd")
+}
 
-    return year + '/' + month + '/' + day + ' ' + hour + ':' + minute + ':' + second;
+/**
+ *
+ * @param {*} d
+ * @return yyyy-MM-dd hh:mm:ss
+ */
+export function timetrans(str) {
+    if (!str) {
+        return '';
+    }
+    return new Date(str).Format("yyyy-MM-dd hh:mm:ss")
+}
+
+/**
+ *
+ * @param {*} str
+ * @return yyyy-MM-dd
+ */
+export function dateFormatFromString(str) {
+    if (!str) {
+        return '';
+    }
+    return new Date(str).Format("yyyy-MM-dd")
 }
 
 
-export function timetrans(d) {
-    // let date = new Date(d);//如果date为10位不需要乘1000
-    return datetimeformatFromString(d).replace(/\//g, '-');
+/**
+ *
+ * @param {*} str
+ * @return yyyy-MM-dd hh:mm
+ */
+export function stringFromDate1(str) {
+    if (!str) {
+        return '';
+    }
+    return new Date(str).Format("yyyy-MM-dd hh:mm")
+}
+
+/**
+ *
+ * @param {*} str
+ * @return yyyy年MM月dd日 hh:mm
+ */
+export function stringFromDate2(str) {
+    if (!str) {
+        return '';
+    }
+    return new Date(str).Format("yyyy年MM月dd日 hh:mm")
+}
+
+/**
+ *
+ * @param {*} str
+ * @return yyyy年MM月dd日 hh:mm
+ */
+export function stringFromDate3(str) {
+    if (!str) {
+        return '';
+    }
+    return new Date(str).Format("yyyy年MM月dd日")
+}
+
+/**
+ *
+ * @param {*} str
+ * @return yyyy年MM月dd日 hh:mm
+ */
+export function stringFromDateToNormal(str) {
+    if (!str) {
+        return '';
+    }
+    return new Date(str).Format("MM月dd日 hh:mm")
 }
 
 
-export function getDay(time1, time2) {
+/**
+ *
+ * @param {*} time1
+ * @param {*} time2
+ * @return 两个时间相隔天数
+ */
+export function apartDays(time1, time2) {
     let t1 = new Date(time1).getTime();
     let t2 = new Date(time2).getTime();
     return Math.ceil((t1 - t2) / 24 / 60 / 60 / 1000);
 }
 
-export function yearLists() {
-    let start = 2018;
-    let today = new Date().getFullYear();
-    let month = new Date().getMonth() + 1;
-    // 发布去除注释
-    // if (month <= 8) {
-    //     today = today - 1;
-    // }
-    let m = today - start;
-    let temp = [];
-    for (let i = 0; i <= m; i++) {
-        temp.push({
-            value: `${start + i}`,
-            name: `${start + i}-${start + i + 1}`
-        });
-    }
-    return temp;
-}
-
-export function todayYear() {
-    let today = new Date().getFullYear();
-    let month = new Date().getMonth() + 1;
-    if (month <= 8) {
-        today = today - 1;
-    }
-    return today + ''
-}
-
-export function todayTerm() {
-    let month = new Date().getMonth() + 1;
-    if (month <= 8) {
-        return 2
-    }
-    return 1
-}
