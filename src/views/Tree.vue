@@ -26,7 +26,7 @@ export default {
                             return {
                                 ...el,
                                 expand: true,
-                                children: ft(el.children || []) || []
+                                children: ft(el.children || [])
                             };
                         });
                     }

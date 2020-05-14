@@ -151,24 +151,34 @@ export const asyncRouter = [
         ]
     },
     {
-        title: "高德地图",
-        path: "/map",
-        name: "map",
+        title: "地图",
+        path: "/maps",
+        name: "maps",
         meta: {
-            title: "高德地图"
+            title: "地图"
         },
         component: resolve =>
             require(["@/components/Layout.vue"], resolve),
         children: [
             {
-                title: "地图",
-                path: "",
-                name: "sub",
+                title: "高德地图",
+                path: "AMap",
+                name: "AMap",
                 meta: {
-                    title: "地图"
+                    title: "高德地图"
                 },
                 component: resolve =>
-                    require(["@/components/Map.vue"], resolve),
+                    require(["@/components/AMap.vue"], resolve),
+            },
+            {
+                title: "百度地图",
+                path: "BMap",
+                name: "BMap",
+                meta: {
+                    title: "百度地图"
+                },
+                component: resolve =>
+                    require(["@/components/BMap.vue"], resolve),
             }
         ]
     }
