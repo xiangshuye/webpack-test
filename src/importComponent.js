@@ -1,6 +1,9 @@
 import Vue from 'vue';
 
-import { Button, Layout, Header, Sider, Content, Row, Col, Form, FormItem, Input, Menu, MenuItem, Submenu, Table, Page, Tree, Poptip, Message } from 'iview';
+import {
+    Button, Layout, Header, Sider, Content, Row, Col, Form, FormItem, Select, Option,
+    Input, Menu, MenuItem, Submenu, Table, Page, Tree, Poptip, Message
+} from 'iview';
 
 Vue.component('Button', Button)
 Vue.component('IButton', Button)
@@ -20,6 +23,7 @@ Vue.component('Page', Page)
 Vue.component('Table', Table)
 Vue.component('Tree', Tree)
 Vue.component('Poptip', Poptip)
-// Vue.component('Message', Message)
+Vue.component('Select', Select)
+Vue.component('Option', Option)
 
 Vue.prototype.$Message = Message
