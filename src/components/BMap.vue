@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import BMapLoader from "@bmap/bmap-jsapi-loader";
+import {BMapLoader} from "@bmap/bmap-jsapi-loader";
 // eIGwkbkGLzFGy3bVduSUXlBcPMQEM5fi
 let map = "";
 export default {
