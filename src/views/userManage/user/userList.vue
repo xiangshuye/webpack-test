@@ -116,7 +116,7 @@ export default {
                             },
                             [
                                 h(
-                                    "i-button",
+                                    "Button",
                                     {
                                         props: {
                                             type: "text"
@@ -130,7 +130,7 @@ export default {
                                     "编辑"
                                 ),
                                 h(
-                                    "i-button",
+                                    "Button",
                                     {
                                         props: {
                                             type: "text"

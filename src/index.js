@@ -6,7 +6,8 @@ import App from './App';
 
 import './common.less';
 
-Vue.use(iView)
+// Vue.use(iView)
+import './importComponent';
 
 import './permission';
 
