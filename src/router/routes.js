@@ -10,7 +10,7 @@ export const asyncRouter = [
         "children": [
             {
                 "title": "账户信息",
-                "path": "accountInfo",
+                "path": "/account/accountInfo",
                 name: 'accountInfo',
                 meta: {
                     title: '账户信息'
@@ -21,7 +21,7 @@ export const asyncRouter = [
     },
     {
         "title": "公告管理",
-        "path": "/notice",
+        "path": "/account/",
         name: 'notice',
         meta: {
             title: '公告管理'
@@ -30,7 +30,7 @@ export const asyncRouter = [
         "children": [
             {
                 "title": "公告信息",
-                "path": "noticeInfo",
+                "path": "/account//noticeInfo",
                 name: 'noticeInfo',
                 meta: {
                     title: '公告信息'
@@ -49,7 +49,7 @@ export const asyncRouter = [
         "children": [
             {
                 "title": "短信统计",
-                "path": "messageStatistics",
+                "path": "/message/messageStatistics",
                 name: 'messageStatistics',
                 meta: {
                     title: '短信统计'
@@ -58,7 +58,7 @@ export const asyncRouter = [
             {
 
                 "title": "模板审核",
-                "path": "templateCheck",
+                "path": "/message/templateCheck",
                 name: 'templateCheck',
                 meta: {
                     title: '模板审核'
@@ -66,7 +66,7 @@ export const asyncRouter = [
             },
             {
                 "title": "签名审核",
-                "path": "signatureCheck",
+                "path": "/message/signatureCheck",
                 name: 'signatureCheck',
                 meta: {
                     title: '签名审核'
@@ -85,7 +85,7 @@ export const asyncRouter = [
         "children": [
             {
                 "title": "部门信息",
-                "path": "department",
+                "path": "/user/department",
                 name: 'department',
                 meta: {
                     title: '部门信息'
@@ -93,7 +93,7 @@ export const asyncRouter = [
             },
             {
                 "title": "用户信息",
-                "path": "userInfo",
+                "path": "/user/userInfo",
                 name: 'userInfo',
                 meta: {
                     title: '用户信息'
@@ -102,7 +102,7 @@ export const asyncRouter = [
             },
             {
                 "title": "角色信息",
-                "path": "roleInfo",
+                "path": "/user/roleInfo",
                 name: 'roleInfo',
                 meta: {
                     title: '角色信息'
@@ -123,7 +123,7 @@ export const asyncRouter = [
         children: [
             {
                 title: "监控信息",
-                path: "monitorMsg",
+                path: "/monitorCenter/monitorMsg",
                 name: "monitorMsg",
                 meta: {
                     title: "监控信息"
@@ -134,7 +134,7 @@ export const asyncRouter = [
 
             {
                 title: "登录日志",
-                path: "conLog",
+                path: "/monitorCenter/conLog",
                 name: "conLog",
                 meta: {
                     title: "登录日志"
@@ -142,7 +142,7 @@ export const asyncRouter = [
             },
             {
                 title: "操作日志",
-                path: "operationlog",
+                path: "/monitorCenter/operationlog",
                 name: "operationlog",
                 meta: {
                     title: "操作日志"
@@ -162,7 +162,7 @@ export const asyncRouter = [
         children: [
             {
                 title: "高德地图",
-                path: "AMap",
+                path: "/maps/AMap",
                 name: "AMap",
                 meta: {
                     title: "高德地图"
@@ -172,7 +172,7 @@ export const asyncRouter = [
             },
             {
                 title: "百度地图",
-                path: "BMap",
+                path: "/maps/BMap",
                 name: "BMap",
                 meta: {
                     title: "百度地图"
@@ -214,6 +214,7 @@ export const router = [
 export const noRouter = [
     {
         path: "*",
+        name: null,
         meta: {
             title: "404"
         },

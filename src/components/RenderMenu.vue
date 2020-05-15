@@ -1,19 +1,24 @@
 <template>
     <MenuItem
         v-if="!menu.children || !menu.children.length"
-        :to="`/${to}`"
+        :to="path"
         :key="menu.id"
-        :name="menu.path"
+        :name="menu.name"
     >
         <template>
             {{ menu.title }}
         </template>
     </MenuItem>
-    <Submenu v-else :key="menu.id" :name="menu.path">
+    <Submenu v-else :key="menu.id" :name="menu.name">
         <template v-slot:title>
             {{ menu.title }}
         </template>
-        <RenderMenu v-for="m of menu.children" :menu="m" :path="`${path}/${m.path}`" :key="m.path"></RenderMenu>
+        <RenderMenu
+            v-for="m of menu.children"
+            :menu="m"
+            :path="m.path"
+            :key="m.path"
+        ></RenderMenu>
     </Submenu>
 </template>
 
@@ -21,21 +26,24 @@
 export default {
     name: "RenderMenu",
     props: {
-        menu:{
+        menu: {
             type: Object,
-            default(){
-                return {}
+            default() {
+                return {};
             }
         },
-        path:{
+        path: {
             type: String,
-            default: ''
+            default: ""
         }
     },
-    computed:{
-        to(v){
-            return this.path.split("/").filter(item => item).join("/");
-        }
+    created() {
+        console.log(this.menu);
+    },
+    computed: {
+        // to(v){
+        //     return this.path.split("/").filter(item => item).join("/");
+        // }
     }
 };
 </script>

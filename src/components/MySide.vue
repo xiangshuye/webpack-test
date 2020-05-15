@@ -10,10 +10,10 @@
             ref="menu"
         >
             <RenderMenu
-                v-for="m of menu"
-                :menu="m"
-                :path="`${m.path}`"
-                :key="m.path"
+                v-for="menu of menus"
+                :menu="menu"
+                :path="`${menu.path}`"
+                :key="menu.path"
             ></RenderMenu>
         </Menu>
     </div>
@@ -30,7 +30,7 @@ export default {
     },
     computed: {
         ...mapState({
-            menu: state => state.permission.menu
+            menus: state => state.permission.menu
         })
     },
     data() {
