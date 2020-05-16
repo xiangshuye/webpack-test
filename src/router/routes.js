@@ -21,7 +21,7 @@ export const asyncRouter = [
     },
     {
         "title": "公告管理",
-        "path": "/account/",
+        "path": "/notice",
         name: 'notice',
         meta: {
             title: '公告管理'
@@ -30,7 +30,7 @@ export const asyncRouter = [
         "children": [
             {
                 "title": "公告信息",
-                "path": "/account//noticeInfo",
+                "path": "/notice/noticeInfo",
                 name: 'noticeInfo',
                 meta: {
                     title: '公告信息'
