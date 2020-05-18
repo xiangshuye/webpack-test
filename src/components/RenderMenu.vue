@@ -36,14 +36,6 @@ export default {
             type: String,
             default: ""
         }
-    },
-    created() {
-        console.log(this.menu);
-    },
-    computed: {
-        // to(v){
-        //     return this.path.split("/").filter(item => item).join("/");
-        // }
     }
 };
 </script>
