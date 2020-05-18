@@ -13,7 +13,7 @@
                 </i-col>
                 <i-col span="6">
                     <FormItem label>
-                        <Button type="primary" @click="search">查 询</Button>
+                        <Button type="primary" @click="initSearch">查 询</Button>
                         <i-button type="default" @click="reset">重 置</i-button>
                     </FormItem>
                 </i-col>
@@ -198,6 +198,10 @@ export default {
         };
     },
     methods: {
+        initSearch(){
+            this.pageConfig.page = 1;
+            this.search();
+        },
         search() {
             const { nameOrTel } = this.req;
             const { page, size } = this.pageConfig;
