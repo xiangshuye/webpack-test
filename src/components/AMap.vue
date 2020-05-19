@@ -4,6 +4,7 @@
 
 <script>
 import AMapLoader from "@amap/amap-jsapi-loader";
+import {AMAPKEY} from '@/config/keyCode'
 // 425d4ea45f9e4df0b51323634035c434
 let map = "";
 export default {
@@ -17,7 +18,7 @@ export default {
     },
     mounted() {
         AMapLoader.load({
-            key: "425d4ea45f9e4df0b51323634035c434", //必填
+            key: AMAPKEY, //必填
             version: "2.0",
             plugins: ["AMap.Scale"]
         })

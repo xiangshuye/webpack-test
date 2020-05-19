@@ -4,6 +4,7 @@
 
 <script>
 import {BMapLoader} from "@bmap/bmap-jsapi-loader";
+import {BMAMKEY} from '@/config/keyCode'
 // eIGwkbkGLzFGy3bVduSUXlBcPMQEM5fi
 let map = "";
 export default {
@@ -17,7 +18,7 @@ export default {
     },
     mounted() {
         BMapLoader({
-            key: "eIGwkbkGLzFGy3bVduSUXlBcPMQEM5fi",
+            key: BMAMKEY,
             version: "3.0"
         })
             .then(BMap => {
