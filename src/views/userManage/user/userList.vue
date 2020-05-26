@@ -38,6 +38,9 @@
 import { getUserList, switchUserStatus } from "@/api/user";
 import { timetrans } from "@/utils/dateUtils";
 import Add from "./Add";
+import {
+    Button, Poptip
+} from 'iview';
 export default {
     name: "UserList",
     data() {
@@ -46,8 +49,8 @@ export default {
             req: {
                 nameOrTel: ""
             },
-            tableData: [],
-            columns: [
+            tableData: Object.freeze([]),
+            columns: Object.freeze([
                 {
                     type: "index",
                     title: "序号",
@@ -61,16 +64,21 @@ export default {
                     title: "性别",
                     key: "gender",
                     render: (h, params) => {
-                        return h(
-                            "span",
-                            null,
-                            params.row.gender === 1 ? "男" : "女"
-                        );
+                        const gender = params.row.gender === 1 ? "男" : "女";
+                        return <span>{gender}</span>;
+                        // return h(
+                        //     "span",
+                        //     null,
+                        //     params.row.gender === 1 ? "男" : "女"
+                        // );
                     }
                 },
                 {
                     title: "账号",
-                    key: "account"
+                    key: "account",
+                    render: (h, params) => {
+                        return (<Button type="text" on-click={() =>this.edit(params.row)}>编辑</Button>)
+                    }
                 },
                 {
                     title: "角色",
@@ -107,88 +115,19 @@ export default {
                     key: "action",
                     width: 260,
                     render: (h, params) => {
-                        return h(
-                            "div",
-                            {
-                                attrs: {
-                                    class: "action"
-                                }
-                            },
-                            [
-                                h(
-                                    "Button",
-                                    {
-                                        props: {
-                                            type: "text"
-                                        },
-                                        on: {
-                                            click: () => {
-                                                this.edit(params.row);
-                                            }
-                                        }
-                                    },
-                                    "编辑"
-                                ),
-                                h(
-                                    "Button",
-                                    {
-                                        props: {
-                                            type: "text"
-                                        },
-                                        on: {
-                                            click: () => {
-                                                this.resetPwd(params.row);
-                                            }
-                                        }
-                                    },
-                                    "重置密码"
-                                ),
-                                h(
-                                    "i-button",
-                                    {
-                                        props: {
-                                            type: "text"
-                                        },
-                                        on: {
-                                            click: () => {
-                                                this.changeStatus(params.row);
-                                            }
-                                        }
-                                    },
-                                    params.row.status === 1 ? "禁用" : "启用"
-                                ),
-                                h(
-                                    "Poptip",
-                                    {
-                                        props: {
-                                            confirm: true,
-                                            title: "您确认删除此用户吗？",
-                                            placement: "left"
-                                        },
-                                        on: {
-                                            "on-ok": () => {
-                                                this.trash(params.row);
-                                            },
-                                            "on-cancel": () => {}
-                                        }
-                                    },
-                                    [
-                                        h(
-                                            "i-button",
-                                            {
-                                                props: {
-                                                    type: "text"
-                                                }
-                                            },
-                                            "删除"
-                                        )
-                                    ]
-                                )
-                            ]
-                        );
+                        return (
+                            <div class="action">
+                                <Button type="text" on-click={this.edit.bind(params.row)}>编辑</Button>
+                                <Button type="text" on-click={() =>this.resetPwd(params.row)}>重置密码</Button>
+                                <Button type="text" on-click={() =>this.changeStatus(params.row)}>{params.row.status === 1 ? "禁用" : "启用"}</Button>
+                                <Poptip confirm on-on-cancel={() =>{}} on-on-ok={() =>this.trash(params.row)} title="您确认删除此用户吗？" placement="left">
+                                    <Button type="text">删除</Button>
+                                </Poptip>
+                            </div>
+                        )
                     }
                 }
-            ],
+            ]),
             pageConfig: {
                 page: 1,
                 size: 10,
@@ -212,7 +151,8 @@ export default {
             };
             getUserList(req).then(data => {
                 if (data.code === 200) {
-                    this.tableData = data.data;
+                    this.tableData = Object.freeze(data.data);
+                    console.log(this.tableData)
                     this.pageConfig.total = data.total;
                     window.scrollTo(0, 0);
                 }

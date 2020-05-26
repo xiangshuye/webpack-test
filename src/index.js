@@ -11,6 +11,7 @@ import './common.less';
 import './importComponent';
 
 import './permission';
+Vue.config.performance = true;
 
 import App from './App';
 new Vue({
