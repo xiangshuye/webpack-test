@@ -86,7 +86,7 @@ module.exports = {
                 vendor: {
                     name: 'vendor',
                     test: /[\\/]node_modules[\\/]/,
-                    maxSize: 300*1024,
+                    // maxSize: 300*1024,
                     priority: -10
                 }
             }

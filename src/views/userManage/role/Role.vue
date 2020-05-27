@@ -23,6 +23,7 @@
     </div>
 </template>
 <script>
+import {Button} from 'iview';
 export default {
     name: "Role",
     data() {
@@ -54,59 +55,13 @@ export default {
                     // fixed: "right",
                     render: (h, params) => {
                         const row = params.row;
-                        return h("div", null, [
-                            h(
-                                "Button",
-                                {
-                                    props: {
-                                        type: "text"
-                                    },
-                                    style: {
-                                        color: "#2d8cf0"
-                                    },
-                                    on: {
-                                        click: () => {
-                                            this.edit(row);
-                                        }
-                                    }
-                                },
-                                "编辑"
-                            ),
-                            h(
-                                "Button",
-                                {
-                                    props: {
-                                        type: "text"
-                                    },
-                                    style: {
-                                        color: "#2d8cf0"
-                                    },
-                                    on: {
-                                        click: () => {
-                                            this.changeState(row);
-                                        }
-                                    }
-                                },
-                                row.status === 1 ? "禁用" : "启用"
-                            ),
-                            h(
-                                "Button",
-                                {
-                                    props: {
-                                        type: "text"
-                                    },
-                                    style: {
-                                        color: "#2d8cf0"
-                                    },
-                                    on: {
-                                        click: () => {
-                                            this.trash(row);
-                                        }
-                                    }
-                                },
-                                "删除"
-                            )
-                        ]);
+                        return (
+                            <div>
+                                <Button type="text" style={{color:'#2d8cf0'}} on-click={() => this.edit(row)}>编辑</Button>
+                                <Button type="text" style={{color:'#2d8cf0'}} on-click={() => this.changeState(row)}>{row.status === 1 ? "禁用" : "启用"}</Button>
+                                <Button type="text" style={{color:'#2d8cf0'}} on-click={() => this.trash(row)}>删除</Button>
+                            </div>
+                        )
                     }
                 }
             ])
