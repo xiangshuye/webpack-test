@@ -174,6 +174,7 @@ export default {
             setTimeout(() => {
                 this.correntCom = null;
             }, 5000);
+            console.log(row);
             this.$Message.info("重置密码");
         },
         changeStatus(row) {

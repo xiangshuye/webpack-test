@@ -14,7 +14,7 @@
                 <Button @click="reset">重&nbsp;置</Button>
             </FormItem>
         </Form>
-        <Row>
+        <Row class="oper">
             <i-col>
                 <Button type="primary" @click="addRole">新&nbsp;建</Button>
             </i-col>
