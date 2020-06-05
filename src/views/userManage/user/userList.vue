@@ -66,11 +66,6 @@ export default {
                     render: (h, params) => {
                         const gender = params.row.gender === 1 ? "男" : "女";
                         return <span>{gender}</span>;
-                        // return h(
-                        //     "span",
-                        //     null,
-                        //     params.row.gender === 1 ? "男" : "女"
-                        // );
                     }
                 },
                 {
@@ -92,22 +87,14 @@ export default {
                     title: "添加时间",
                     key: "createtime",
                     render: (h, params) => {
-                        return h(
-                            "span",
-                            null,
-                            timetrans(params.row.createtime)
-                        );
+                        return <span>{timetrans(params.row.createtime)}</span>
                     }
                 },
                 {
                     title: "状态",
                     key: "status",
                     render: (h, params) => {
-                        return h(
-                            "span",
-                            null,
-                            params.row.status === 1 ? "启用" : "禁用"
-                        );
+                        return <span>{ params.row.status === 1 ? "启用" : "禁用"}</span>
                     }
                 },
                 {
@@ -120,7 +107,7 @@ export default {
                                 <Button type="text" on-click={this.edit.bind(params.row)}>编辑</Button>
                                 <Button type="text" on-click={() =>this.resetPwd(params.row)}>重置密码</Button>
                                 <Button type="text" on-click={() =>this.changeStatus(params.row)}>{params.row.status === 1 ? "禁用" : "启用"}</Button>
-                                <Poptip confirm on-on-cancel={() =>{}} on-on-ok={() =>this.trash(params.row)} title="您确认删除此用户吗？" placement="left">
+                                <Poptip transfer confirm on-on-cancel={() =>{}} on-on-ok={() =>this.trash(params.row)} title="您确认删除此用户吗？" placement="left">
                                     <Button type="text">删除</Button>
                                 </Poptip>
                             </div>
