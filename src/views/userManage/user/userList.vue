@@ -104,7 +104,7 @@ export default {
                     render: (h, params) => {
                         return (
                             <div class="action">
-                                <Button type="text" on-click={this.edit.bind(params.row)}>编辑</Button>
+                                <Button type="text" on-click={this.edit.bind(this, params.row)}>编辑</Button>
                                 <Button type="text" on-click={() =>this.resetPwd(params.row)}>重置密码</Button>
                                 <Button type="text" on-click={() =>this.changeStatus(params.row)}>{params.row.status === 1 ? "禁用" : "启用"}</Button>
                                 <Poptip transfer confirm on-on-cancel={() =>{}} on-on-ok={() =>this.trash(params.row)} title="您确认删除此用户吗？" placement="left">
@@ -149,6 +149,7 @@ export default {
             this.req.nameOrTel = "";
         },
         edit(row) {
+            console.log(this);
             setTimeout(() => {
                 this.$router.push("/monitorCenter/monitorMsg");
                 console.log(this.$router);
