@@ -1,9 +1,9 @@
-const path = require('path')
-const webpack = require("webpack")
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
+const path = require("path");
+const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const AddAssetHtmlPlugin = require("add-asset-html-webpack-plugin");
 
 module.exports = {
     entry: {
@@ -33,7 +33,24 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                use: "babel-loader",
+                use: [
+                    {
+                        loader: "thread-loader",
+                        options: {
+                            worker: 2,
+                            workerParallelJobs: 30,
+                            poolTimeout: 2000,
+                            poolParallelJobs: 50
+                        }
+                    },
+                    {
+                        loader: require.resolve("babel-loader"),
+                        options: {
+                            cacheDirectory: true
+                            // eslintPath: require.resolve('eslint'),
+                        }
+                    }
+                ],
                 exclude: /node_modules/
             },
             {
@@ -93,7 +110,7 @@ module.exports = {
                 vendor: {
                     name: "vendor",
                     test: /[\\/]node_modules[\\/]/,
-                    maxSize: 300*1024,
+                    maxSize: 300 * 1024,
                     priority: -10
                 }
             }
