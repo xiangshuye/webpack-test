@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <!-- <div> -->
         <Menu
             accordion
             theme="dark"
@@ -16,7 +16,7 @@
                 :key="menu.path"
             ></RenderMenu>
         </Menu>
-    </div>
+    <!-- </div> -->
 </template>
 <script>
 import { getMenu } from "@/api/menu";
