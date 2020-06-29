@@ -20,7 +20,14 @@ import {
     Page,
     Tree,
     Poptip,
-    Message
+    Message,
+    RadioGroup,
+    Radio,
+    CheckboxGroup,
+    Checkbox,
+    Switch,
+    Slider,
+    DatePicker
 } from "iview";
 
 Vue.component("Button", Button);
@@ -43,7 +50,14 @@ Vue.component("Tree", Tree);
 Vue.component("Poptip", Poptip);
 Vue.component("Select", Select);
 Vue.component("Option", Option);
-
+Vue.component("RadioGroup", RadioGroup);
+Vue.component("Radio", Radio);
+Vue.component("CheckboxGroup", CheckboxGroup);
+Vue.component("Checkbox", Checkbox);
+// Vue.component("Switch", Switch);
+Vue.component("ISwitch", Switch);
+Vue.component("Slider", Slider);
+Vue.component("DatePicker", DatePicker);
 // Vue.prototype.$IVIEW = {
 //     size: "small",
 //     select: {},
