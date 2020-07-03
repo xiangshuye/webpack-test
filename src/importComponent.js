@@ -27,7 +27,8 @@ import {
     Checkbox,
     Switch,
     Slider,
-    DatePicker
+    DatePicker,
+    Icon
 } from "iview";
 
 Vue.component("Button", Button);
@@ -58,6 +59,7 @@ Vue.component("Checkbox", Checkbox);
 Vue.component("ISwitch", Switch);
 Vue.component("Slider", Slider);
 Vue.component("DatePicker", DatePicker);
+Vue.component("Icon", Icon);
 // Vue.prototype.$IVIEW = {
 //     size: "small",
 //     select: {},

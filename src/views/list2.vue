@@ -36,6 +36,11 @@
                         <span slot="close">关</span>
                     </i-switch>
                 </FormItem>
+                <FormItem label="switch">
+                    <BaseSelect v-model="form.select" @on-change="selectChange">
+                        <Option value="2">2</Option>
+                    </BaseSelect>
+                </FormItem>
                 <FormItem label="Slider">
                     <Slider v-model="form.slider" range></Slider>
                 </FormItem>
@@ -49,16 +54,26 @@
 </template>
 
 <script>
+import BaseSelect from '@/components/base/BaseSelect.vue';
 export default {
     name:"List2",
+    components:{
+        BaseSelect
+    },
     data(){
         return {
             form:{
                 username: '',
                 checkbox: [],
                 slider: [20, 50],
+                select: "6"
             },
             rules:{}
+        }
+    },
+    methods:{
+        selectChange(value){
+            console.log(value)
         }
     }
 }

@@ -13,7 +13,6 @@ export default {
     methods: {
         logout() {
             this.$store.commit("clearRouter");
-            // this.$router.push("/login");
             window.location.replace("/login");
         }
     }
@@ -24,8 +23,9 @@ export default {
     display: flex;
     justify-content: space-between;
     .page-title {
-        font-size: 26px;
+        font-size: 20px;
         color: springgreen;
+        font-family: cursive;
     }
     .login-img {
         display: flex;
