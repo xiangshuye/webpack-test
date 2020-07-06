@@ -19,7 +19,7 @@ let user = {
         async_count(ctx) { // 接收与 store 相同的 context
             console.log(ctx)
             setTimeout(() => {
-                ctx.state.count++
+                commit("increments")
             }, 1000);
         },
         userLogin({ commit }, params) {
