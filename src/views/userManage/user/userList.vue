@@ -30,7 +30,7 @@
             show-elevator
             show-sizer
         />
-        <Component :is="correntCom"></Component>
+        <Component :is="currentCom"></Component>
     </div>
 </template>
 
@@ -45,7 +45,7 @@ export default {
     name: "UserList",
     data() {
         return {
-            correntCom: null,
+            currentCom: null,
             req: {
                 nameOrTel: ""
             },
@@ -158,9 +158,9 @@ export default {
             this.$Message.info("编辑");
         },
         resetPwd(row) {
-            this.correntCom = Add;
+            this.currentCom = Add;
             setTimeout(() => {
-                this.correntCom = null;
+                this.currentCom = null;
             }, 5000);
             console.log(row);
             this.$Message.info("重置密码");
@@ -172,7 +172,7 @@ export default {
                     this.$Message.success("用户状态修改成功");
                     this.search();
                 } else {
-                    this.$Message.success("用户状态修改失败");
+                    this.$Message.error("用户状态修改失败");
                     // this.search();
                 }
             });

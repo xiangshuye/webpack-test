@@ -15,6 +15,7 @@ require("echarts/lib/chart/bar");
 require("echarts/lib/component/legend");
 require("echarts/lib/component/tooltip");
 require("echarts/lib/component/title");
+let chart = null;
 export default {
     name: "ChartVue",
     props: {
@@ -62,28 +63,39 @@ export default {
     data: function() {
         return {
             id: "echart" + ~~(Math.random() * 1000000),
-            chart: null
+            // chart: null
         };
     },
     methods: {
         init() {
-            if (!this.chart) {
-                this.chart = echarts.init(this.$refs.myChart);
+            if (!chart) {
+                chart = echarts.init(this.$refs.myChart);
             }
-            this.chart.setOption(this.option);
+            chart.setOption(this.option);
         }
     },
     mounted() {
         this.init();
         window.onresize = () => {
-            this.chart.resize();
+            if(chart){
+                chart.resize();
+            }
         };
+
+        this.$once("hook:beforeDestroy", () => {
+            if (!chart) {
+                chart.dispose();
+                chart = null;
+            }
+            window.onresize = null;
+        })
     },
     beforeDestroy() {
-        if (!this.chart) {
-            this.chart.dispose();
-            this.chart = null;
-        }
+        // if (!chart) {
+        //     chart.dispose();
+        //     chart = null;
+        // }
+        // window.onresize = null;
     }
 };
 </script>
