@@ -1,5 +1,5 @@
 <template>
-  <Select :value="value" @on-change="selectChange" v-bind="$attrs" v-on="$listeners">
+  <Select v-bind="$attrs" v-on="$listeners">
       <div slot="prefix">
           <slot name="prefix"><Icon :type="prefix"></Icon></slot>
       </div>
@@ -19,20 +19,10 @@
 export default {
     name:"BaseSelect",
     props:{
-        value:{
-            type: [String, Number],
-        },
         prefix:{
             type: String
         }
     },
-    methods:{
-        selectChange(value){
-            this.$emit('input', value)
-            // this.$emit('on-change', value)
-            // this.dispatch('FormItem', 'on-form-change', value);
-        }
-    }
 }
 </script>
 
