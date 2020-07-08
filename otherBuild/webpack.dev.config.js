@@ -1,7 +1,7 @@
 const merge = require("webpack-merge");
 const path = require("path");
 const baseConfig = require("./webpack.base.config");
-const PrerenderSPAPlugin = require("prerender-spa-plugin");
+// const PrerenderSPAPlugin = require("prerender-spa-plugin");
 
 module.exports = merge(baseConfig, {
     mode: "development",
@@ -45,12 +45,12 @@ module.exports = merge(baseConfig, {
             }
         ]
     },
-    plugins: [
-        new PrerenderSPAPlugin({
-            // Required - The path to the webpack-outputted app to prerender.
-            staticDir: path.join(__dirname, "../dist"),
-            // Required - Routes to render.
-            routes: ["/", "/user/userInfo", "/account/accountInfo"]
-        })
-    ]
+    // plugins: [
+    //     new PrerenderSPAPlugin({
+    //         // Required - The path to the webpack-outputted app to prerender.
+    //         staticDir: path.join(__dirname, "../dist"),
+    //         // Required - Routes to render.
+    //         routes: ["/", "/user/userInfo", "/account/accountInfo"]
+    //     })
+    // ]
 });

@@ -1,6 +1,5 @@
 {
     "presets": [
-        // "stage-3",
         [
             "env",
             {
@@ -11,15 +10,16 @@
                         "last 2 versions",
                         "not ie <= 8"
                     ]
-                }
+                },
+                "useBuiltIns": "usage"
             }
         ]
     ],
     "plugins": [
         "transform-vue-jsx",
         "transform-runtime",
-        "transform-object-rest-spread",
-        [
+        "transform-object-rest-spread"
+        ,[
             "import",
             {
                 "libraryName": "iview",
