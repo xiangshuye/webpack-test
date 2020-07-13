@@ -2,7 +2,7 @@
     <div>
         <Form :label-width="0">
             <Row :gutter="16">
-                <i-col span="6">
+                <Col span="6">
                     <FormItem label>
                         <i-input
                             v-model.trim="req.nameOrTel"
@@ -10,7 +10,7 @@
                             placeholder="请输入用户姓名或者登录手机号搜索"
                         ></i-input>
                     </FormItem>
-                </i-col>
+                </Col>
                 <i-col span="6">
                     <FormItem label>
                         <Button type="primary" @click="initSearch">查 询</Button>

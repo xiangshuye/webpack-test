@@ -38,7 +38,7 @@
                 </FormItem>
                 <FormItem label="switch">
                     <BaseSelect v-model="form.select" @on-change="selectChange">
-                        <span slot="prefix">lp</span>
+                        <span slot="prefix">LPL</span>
                         <Option value="2">2</Option>
                     </BaseSelect>
                 </FormItem>

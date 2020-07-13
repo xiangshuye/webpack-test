@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router'
 import { router } from './routes'
+import { RESOURCEBASEPATH } from '@/config/keyCode';
 
 Vue.use(VueRouter);
 
@@ -10,6 +11,7 @@ VueRouter.prototype.push = function push(location) {
 }
 
 export default new VueRouter({
-    mode: 'history',
-    routes: router
-})
+    mode: "history",
+    routes: router,
+    base: RESOURCEBASEPATH
+});
