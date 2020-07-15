@@ -13,7 +13,8 @@ export default {
     methods: {
         logout() {
             this.$store.commit("clearRouter");
-            window.location.replace("/login");
+            this.$router.replace('/login')
+            window.location.reload();
         }
     }
 };
