@@ -7,7 +7,7 @@ import { SUCCESS, LOGIN_TIMEOUT } from "@/config/keyCode";
  */
 
 let fetch = axios.create({
-    baseURL: "http://localhost:3002/api/",
+    baseURL: "http://122.51.129.51:3002/api/",
     timeout: 10000,
     withCredentials: true
 });
