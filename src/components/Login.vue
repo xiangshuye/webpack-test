@@ -39,7 +39,7 @@ export default {
                     // })
                     sessionStorage.setItem("username", res.data.name);
                 }
-                this.$router.push("/index").catch(err => {
+                this.$router.push("/home").catch(err => {
                     // console.log(err);
                 });
             });
