@@ -6,7 +6,7 @@ export const asyncRouter = [
         meta: {
             title: "账户管理"
         },
-        component: resolve => require(["@/components/Layout.vue"], resolve),
+        component: () => import('@/components/Layout.vue'), //resolve => require(["@/components/Layout.vue"], resolve),
         children: [
             {
                 title: "账户信息",

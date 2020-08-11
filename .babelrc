@@ -16,10 +16,11 @@
         ]
     ],
     "plugins": [
+        "syntax-dynamic-import",
         "transform-vue-jsx",
         "transform-runtime",
-        "transform-object-rest-spread"
-        ,[
+        "transform-object-rest-spread",
+        [
             "import",
             {
                 "libraryName": "iview",
