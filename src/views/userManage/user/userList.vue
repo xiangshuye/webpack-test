@@ -105,9 +105,9 @@ export default {
                         return (
                             <div class="action">
                                 <Button type="text" on-click={this.edit.bind(this, params.row)}>编辑</Button>
-                                <Button type="text" on-click={() =>this.resetPwd(params.row)}>重置密码</Button>
-                                <Button type="text" on-click={() =>this.changeStatus(params.row)}>{params.row.status === 1 ? "禁用" : "启用"}</Button>
-                                <Poptip transfer confirm on-on-cancel={() =>{}} on-on-ok={() =>this.trash(params.row)} title="您确认删除此用户吗？" placement="left">
+                                <Button type="text" onClick={() =>this.resetPwd(params.row)}>重置密码</Button>
+                                <Button type="text" onClick={() =>this.changeStatus(params.row)}>{params.row.status === 1 ? "禁用" : "启用"}</Button>
+                                <Poptip transfer confirm onOn-cancel={() =>{}} onOn-ok={() =>this.trash(params.row)} title="您确认删除此用户吗？" placement="left">
                                     <Button type="text">删除</Button>
                                 </Poptip>
                             </div>

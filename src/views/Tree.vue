@@ -1,11 +1,7 @@
-<template>
-    <div>
-        <Button @click="getSelect">get</Button>
-        <Tree ref="tree" :data="data2" show-checkbox></Tree>
-    </div>
-</template>
+
 <script>
 import { getMenu } from "@/api/menu";
+import { Tree, Button } from 'iview';
 export default {
     data() {
         return {
@@ -38,6 +34,14 @@ export default {
     },
     mounted() {
         this.getmenu();
+    },
+    render(h){
+        return (
+            <div>
+                <Button on-click={this.getSelect}>get</Button>
+                <Tree ref="tree" data={this.data2} show-checkbox></Tree>
+            </div>
+        )
     }
 };
 </script>
