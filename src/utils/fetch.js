@@ -9,6 +9,9 @@ import { SUCCESS, LOGIN_TIMEOUT } from "@/config/keyCode";
 let fetch = axios.create({
     baseURL: "http://localhost:3002/api/",
     timeout: 10000,
+    headers: {
+        'Content-Type': 'application/json'
+    },
     withCredentials: true
 });
 fetch.interceptors.request.use(config => {
