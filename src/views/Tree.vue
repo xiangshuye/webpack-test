@@ -1,7 +1,7 @@
 
 <script>
 import { getMenu } from "@/api/menu";
-import { Tree, Button } from 'iview';
+import { Tree, Button } from 'view-design';
 export default {
     data() {
         return {

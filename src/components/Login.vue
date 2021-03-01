@@ -19,13 +19,14 @@
 <script>
 import { asyncRouter, router, noRouter } from "@/router/routes";
 import { userLogin } from "@/api/user";
+import { Message } from 'view-design';
 
 export default {
     name: "Login",
     data() {
         return {
             user: {
-                name: "xueliang",
+                name: "jack0",
                 password: "123456"
             }
         };
@@ -34,14 +35,19 @@ export default {
         login() {
             userLogin(this.user).then(res => {
                 if (res.code === 200) {
-                    // this.$store.commit("LOGIN_STATE",{
-                    //     username: res.data.name
-                    // })
+                    this.$store.commit("LOGIN_STATE",{
+                        username: res.data.name
+                    })
+                    console.log(res);
                     sessionStorage.setItem("username", res.data.name);
+                    this.$router.push("/home").catch(err => {
+                        // console.log(err);
+                    });
+                    
+                }else {
+                    this.$Message.error(res.msg)
                 }
-                this.$router.push("/home").catch(err => {
-                    // console.log(err);
-                });
+           
             });
         }
     }

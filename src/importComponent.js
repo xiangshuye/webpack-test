@@ -29,7 +29,7 @@ import {
     Slider,
     DatePicker,
     Icon
-} from "iview";
+} from "view-design";
 
 Vue.component("Button", Button);
 Vue.component("IButton", Button);

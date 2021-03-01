@@ -40,7 +40,7 @@ import { timetrans } from "@/utils/dateUtils";
 import Add from "./Add";
 import {
     Button, Poptip
-} from 'iview';
+} from 'view-design';
 export default {
     name: "UserList",
     data() {

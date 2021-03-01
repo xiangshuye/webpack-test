@@ -23,7 +23,7 @@
     </div>
 </template>
 <script>
-import {Button} from 'iview';
+import {Button} from 'view-design';
 export default {
     name: "Role",
     data() {
