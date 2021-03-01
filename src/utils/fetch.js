@@ -1,5 +1,6 @@
 import axios from "axios";
 import { SUCCESS, LOGIN_TIMEOUT } from "@/config/keyCode";
+import { Message } from 'view-design';
 
 /*
  * 对 axios 进行封装，可以利用拦截器功能对发送数据和返回数据进行处理，或其他操作
@@ -7,7 +8,7 @@ import { SUCCESS, LOGIN_TIMEOUT } from "@/config/keyCode";
  */
 
 let fetch = axios.create({
-    baseURL: "http://localhost:3002/api/",
+    baseURL: "https://sse.zhiqiuge.com/api/",
     timeout: 10000,
     headers: {
         'Content-Type': 'application/json'
@@ -31,6 +32,8 @@ fetch.interceptors.response.use(res => {
             // 登录超时，token过期，返回 login 页面
         }
         return data;
+    } else {
+        Message.error(res.msg)
     }
 });
 

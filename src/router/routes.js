@@ -34,7 +34,9 @@ export const asyncRouter = [
                 name: "noticeInfo",
                 meta: {
                     title: "公告信息"
-                }
+                },
+                component: resolve => require(["@/views/Player.vue"], resolve)
+
             }
         ]
     },
