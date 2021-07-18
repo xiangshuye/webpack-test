@@ -2,7 +2,6 @@ let user = {
     state: {
         count: 1,
         page: 10,
-        username: ''
     },
     mutations: { // 同步提交
         increments(state) {
@@ -28,9 +27,7 @@ let user = {
         logout({ commit }) {
             return new Promise((resolve, reject) => {
                 sessionStorage.clear();
-                commit("LOGIN_STATE", {
-                    username: ''
-                })
+                commit("LOGIsetUserInfoN_STATE", {})
                 commit("clearRouter");
                 resolve(true);
             })

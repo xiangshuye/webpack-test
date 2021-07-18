@@ -8,7 +8,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         count: 1,
-        page: 10
+        page: 10,
+        userinfo: {}
     },
     mutations: { // 同步提交
         increment(state) {
@@ -16,6 +17,10 @@ export default new Vuex.Store({
         },
         addPage(state) {
             state.page++
+        },
+        setUserInfo(state, payload) {
+            console.log(payload.userinfo)
+            state.userinfo = Object.freeze(payload.userinfo);
         }
     },
     modules: {

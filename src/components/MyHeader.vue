@@ -2,12 +2,13 @@
     <header class="myHeader">
         <div class="page-title">创客</div>
         <div class="login-img" @click="logout">
-            <img src="@/assets/photo.png" alt="photo" />&nbsp; defr
+            <img src="@/assets/photo.png" alt="photo" />&nbsp; {{username}}
         </div>
     </header>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
     name: "MyHeader",
     methods: {
@@ -16,6 +17,11 @@ export default {
             this.$router.replace('/login')
             window.location.reload();
         }
+    },
+    computed: {
+        username(){
+            return this.$store.state.userinfo.name
+        } 
     }
 };
 </script>

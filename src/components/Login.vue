@@ -26,7 +26,7 @@ export default {
     data() {
         return {
             user: {
-                name: "jack0",
+                name: "xueliang",
                 password: "123456"
             }
         };
@@ -35,11 +35,10 @@ export default {
         login() {
             userLogin(this.user).then(res => {
                 if (res.code === 200) {
-                    this.$store.commit("LOGIN_STATE",{
-                        username: res.data.name
+                    this.$store.commit("setUserInfo",{
+                        userinfo: res.data
                     })
-                    console.log(res);
-                    sessionStorage.setItem("username", res.data.name);
+                    sessionStorage.setItem('username', res.data.name)
                     this.$router.push("/home").catch(err => {
                         // console.log(err);
                     });

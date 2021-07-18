@@ -4,10 +4,12 @@
 
 
 let path = {
-    getMenu: 'system/systemMenu',
-    userLogin: 'users/login',
+    getMenu: '/system/systemMenu',
+    userLogin: '/users/login',
     userList: "/users/userList",
     userStatus: '/users/changeUserStatus',
+
+    filelist: '/file/alioss/list'
 }
 
 export default path;

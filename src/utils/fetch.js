@@ -8,7 +8,7 @@ import { Message } from 'view-design';
  */
 
 let fetch = axios.create({
-    baseURL: "https://sse.zhiqiuge.com/api/",
+    baseURL: "https://sse.zhiqiuge.com/api",
     timeout: 10000,
     headers: {
         'Content-Type': 'application/json'
