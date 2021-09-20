@@ -110,6 +110,12 @@ module.exports = {
                     test: /[\\/]node_modules[\\/]/,
                     maxSize: 300 * 1024,
                     priority: -10
+                },
+                view: {
+                    name: "view-design",
+                    test: /[\\/]view-design[\\/]/,
+                    maxSize: 300 * 1024,
+                    priority: 0
                 }
             }
         }

@@ -3,14 +3,14 @@ module.exports = {
         browser: true,
         es6: true
     },
-    extends: ["airbnb", "plugin:prettie/recommended"],
+    extends: ["airbnb", "plugin:prettier/recommended"],
     // "eslint:recommended",
     globals: {
         Atomics: "readonly",
         SharedArrayBuffer: "readonly"
     },
     parserOptions: {
-        ecmaVersion: 2018,
+        ecmaVersion: 2021,
         sourceType: "module"
     },
     plugins: ["vue"],

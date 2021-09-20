@@ -214,7 +214,7 @@ export const router = [
 export const noRouter = [
     {
         path: "*",
-        name: null,
+        name: "nopage",
         meta: {
             title: "404"
         },
