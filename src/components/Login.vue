@@ -6,7 +6,7 @@
                     <Input v-model="user.name" />
                 </FormItem>
                 <FormItem label="密码">
-                    <Input v-model="user.password" />
+                    <Input type="password" v-model="user.password" />
                 </FormItem>
                 <FormItem>
                     <Button type="primary" @click="login">signin</Button>
@@ -26,8 +26,8 @@ export default {
     data() {
         return {
             user: {
-                name: "xueliang",
-                password: "123456"
+                name: "",
+                password: ""
             }
         };
     },
