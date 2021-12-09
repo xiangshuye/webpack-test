@@ -1,24 +1,22 @@
-// import "babel-polyfill";
+import "babel-polyfill";
 
-import Vue from 'vue';
-import router from '@/router/index';
-import store from '@/store/index'
+import Vue from "vue";
+import router from "@/router/index";
+import store from "@/store/index";
 // import iView from 'iview'
 
-
-import './common.less';
-
+import "./common.less";
 
 // Vue.use(iView)
-import './importComponent';
+import "./importComponent";
 
-import './permission';
+import "./permission";
 Vue.config.performance = true;
 
-import App from './App';
+import App from "./App";
 new Vue({
-    el: "#app",
-    router,
-    store,
-    render: h => h(App)
-})
+  el: "#app",
+  router,
+  store,
+  render: h => h(App)
+});

@@ -1,9 +1,9 @@
 <template>
-    <div
-        :id="id"
-        ref="myChart"
-        :style="{ width: width + 'px', height: height + 'px' }"
-    ></div>
+  <div
+    :id="id"
+    ref="myChart"
+    :style="{ width: width + 'px', height: height + 'px' }"
+  ></div>
 </template>
 <script>
 // import * as echarts from "echarts";
@@ -17,86 +17,79 @@ require("echarts/lib/component/tooltip");
 require("echarts/lib/component/title");
 let chart = null;
 export default {
-    name: "ChartVue",
-    props: {
-        option: {
-            type: Object,
-            default: function() {
-                return {
-                    title: {
-                        text: "ECharts 入门示例"
-                    },
-                    tooltip: {},
-                    legend: {
-                        data: ["销量"]
-                    },
-                    xAxis: {
-                        data: [
-                            "衬衫",
-                            "羊毛衫",
-                            "雪纺衫",
-                            "裤子",
-                            "高跟鞋",
-                            "袜子"
-                        ]
-                    },
-                    yAxis: {},
-                    series: [
-                        {
-                            name: "销量",
-                            type: "bar",
-                            data: [5, 20, 36, 10, 10, 20]
-                        }
-                    ]
-                };
-            }
-        },
-        width: {
-            type: Number,
-            default: 200
-        },
-        height: {
-            type: Number,
-            default: 200
-        }
-    },
-    data: function() {
+  name: "ChartVue",
+  props: {
+    option: {
+      type: Object,
+      default: function() {
         return {
-            id: "echart" + ~~(Math.random() * 1000000),
-            // chart: null
+          title: {
+            text: "ECharts 入门示例"
+          },
+          tooltip: {},
+          legend: {
+            data: ["销量"]
+          },
+          xAxis: {
+            data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+          },
+          yAxis: {},
+          series: [
+            {
+              name: "销量",
+              type: "bar",
+              data: [5, 20, 36, 10, 10, 20]
+            }
+          ]
         };
+      }
     },
-    methods: {
-        init() {
-            if (!chart) {
-                chart = echarts.init(this.$refs.myChart);
-            }
-            chart.setOption(this.option);
-        }
+    width: {
+      type: Number,
+      default: 200
     },
-    mounted() {
-        this.init();
-        window.onresize = () => {
-            if(chart){
-                chart.resize();
-            }
-        };
-
-        this.$once("hook:beforeDestroy", () => {
-            if (!chart) {
-                chart.dispose();
-                chart = null;
-            }
-            window.onresize = null;
-        })
-    },
-    beforeDestroy() {
-        // if (!chart) {
-        //     chart.dispose();
-        //     chart = null;
-        // }
-        // window.onresize = null;
+    height: {
+      type: Number,
+      default: 200
     }
+  },
+  data: function() {
+    return {
+      id: "echart" + ~~(Math.random() * 1000000)
+      // chart: null
+    };
+  },
+  methods: {
+    init() {
+      if (!chart) {
+        chart = echarts.init(this.$refs.myChart);
+      }
+      chart.setOption(this.option);
+    }
+  },
+  mounted() {
+    this.init();
+    window.onresize = () => {
+      if (chart) {
+        chart.resize();
+      }
+    };
+
+    this.$once("hook:beforeDestroy", () => {
+      if (!chart) {
+        chart.dispose();
+        chart = null;
+      }
+      window.onresize = null;
+    });
+  },
+  beforeDestroy() {
+    // if (!chart) {
+    //     chart.dispose();
+    //     chart = null;
+    // }
+    // window.onresize = null;
+  }
 };
 </script>
 

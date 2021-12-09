@@ -1,20 +1,18 @@
 <template>
   <div>
-      haha
+    haha
   </div>
 </template>
 
 <script>
 export default {
-    mounted(){
-        console.log("mounted")
-    },
-    beforeDestroy(){
-        console.log("dstroy")
-    }
-}
+  mounted() {
+    console.log("mounted");
+  },
+  beforeDestroy() {
+    console.log("dstroy");
+  }
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
