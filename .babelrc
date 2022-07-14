@@ -1,20 +1,24 @@
 {
   "presets": [
-    [
-      "env",
-      {
-        "modules": false,
-        "targets": {
-          "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
-        },
-        "useBuiltIns": "usage"
-      }
-    ]
+    // [
+    //   "env",
+    //   {
+    //     "modules": false,
+    //     "targets": {
+    //       "browsers": [
+    //         "> 1%",
+    //         "last 2 versions",
+    //         "not ie <= 8"
+    //       ]
+    //     },
+    //     "useBuiltIns": "entry"
+    //   }
+    // ]
   ],
   "plugins": [
     "syntax-dynamic-import",
     "transform-vue-jsx",
-    "transform-runtime",
+    // "transform-runtime",
     "transform-object-rest-spread",
     [
       "import",

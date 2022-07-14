@@ -8,6 +8,7 @@
 export default {
   name: "App",
   mounted() {
+    console.log(Promise.allSettled)
     Promise.allSettled([]).then(() => {});
   }
 };
