@@ -8,7 +8,7 @@ import { Message } from "view-design";
  */
 
 let fetch = axios.create({
-  baseURL: "https://sse.zhiqiuge.com/api",
+  baseURL: "http://localhost:3003",
   timeout: 10000,
   headers: {
     "Content-Type": "application/json"
@@ -18,7 +18,7 @@ let fetch = axios.create({
 fetch.interceptors.request.use(config => {
   const token = sessionStorage.getItem("token");
   if (token) {
-    config.headers["token"] = token;
+    config.headers["AuthToken"] = token;
   }
   return config;
 });
